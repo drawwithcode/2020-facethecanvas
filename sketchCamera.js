@@ -67,7 +67,16 @@ function loadFrame() {
 }
 
 function showCanvas() {
-  cnv = createCanvas(400,400);
+  //screen adaptation
+  if(windowHeight > 700) {
+    cnv = createCanvas(500,500);
+  }
+  else if(windowWidth > windowHeight) {
+    cnv = createCanvas(windowHeight*0.7,windowHeight*0.7);
+  }
+  else {
+    cnv = createCanvas(windowWidth*0.9,windowWidth*0.9);
+  }
   cnv.id("canvas");
 }
 
@@ -78,7 +87,7 @@ function showCapture() {
 }
 
 function showPhoto() {
-  image(capture, width/2, height/2, width, height);
+  image(capture, width/2, height/2, 0, height);
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
   }
@@ -129,6 +138,7 @@ function retakePhoto() {
 }
 
 function confirmPhoto() {
+  // resizeCanvas(150, 150);
   let canvas = document.getElementById("canvas");
   let dataURL = canvas.toDataURL();
   let data = {
