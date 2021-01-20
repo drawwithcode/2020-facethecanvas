@@ -7,11 +7,11 @@ let takePhotoButton;
 let confirmButton;
 let retakePhotoButton;
 
+//Cornici dei quadri, preparo tutte le variabili e poi nel preload chiamo
+//solo quella indicata nel passaggio da index(Artwork) a qua (Camera), evitando il peso di caricarle tutte
+//sarebbe dispersivo usare Firebase anche per questa cosa perchè è molto pesante e complicato
 let frame;
-const urlString = window.location.href;
-const url = new URL(urlString);
-let whichArwork = url.searchParams.get("currentArtwork");; //serve per cartella per la cornice e per openArtwork();
-let whichFrame = url.searchParams.get("selectedFrame"); //serve per la cornice
+let whichFrame = 1;
 let hideFrame = 0;
 
 function preload(){
@@ -62,7 +62,7 @@ function loadFrame() {
 }
 
 function showCanvas() {
-  cnv = createCanvas(500, 500);
+  cnv = createCanvas(400,400);
   cnv.id("canvas");
 }
 
@@ -143,5 +143,5 @@ function confirmPhoto() {
 
 function openArtwork() {
   //se questo link viene inserito nella funzione confirmPhoto() ci sono problemi col database, che non riceve la foto
-  window.open('artwork1.html', '_self');
+  window.open('index.html', '_self');
 }

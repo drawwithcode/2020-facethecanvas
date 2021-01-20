@@ -14,17 +14,17 @@ function preload() {
 
 function setup() {
   //imageMode(CENTER);
-  createCanvas(windowWidth,400);
-  background("purple");
+  createCanvas(400,400);
+  background("black");
 
   button = createButton("CAMERA");
   button.mousePressed(openCamera);
 }
 
 function draw() {
-  if(loading==2){
-    showImages();
-  }
+  // if(loading==2){
+  //   showImages();
+  // }
 }
 
 function firebaseConfiguration() {
@@ -78,6 +78,6 @@ function showImages() {
 }
 
 function openCamera() {
-  //window.open('camera.html', '_self');
-  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open('camera.html', '_self');
+  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }
