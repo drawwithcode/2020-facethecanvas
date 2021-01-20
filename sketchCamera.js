@@ -16,11 +16,11 @@ let faces;
 //Cornici dei quadri, preparo tutte le variabili e poi nel preload chiamo
 //solo quella indicata nel passaggio da index(Artwork) a qua (Camera), evitando il peso di caricarle tutte
 //sarebbe dispersivo usare Firebase anche per questa cosa perchè è molto pesante e complicato
+let frame;
 const urlString = window.location.href;
 const url = new URL(urlString);
 let whichArwork = url.searchParams.get("currentArtwork");; //serve per cartella per la cornice e per openArtwork();
 let whichFrame = url.searchParams.get("selectedFrame"); //serve per la cornice
-let frame;
 let hideFrame = 0; //nascondere o mostrare cornice, va tolta per raccogliere la foto
 //queste informazioni servono anche per confirmPhoto(), per indicare dove va la foto, in modo che l'artwork la pesca giusta
 
