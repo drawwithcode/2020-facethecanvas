@@ -15,7 +15,7 @@ function preload() {
 function setup() {
   //imageMode(CENTER);
   createCanvas(windowWidth,400);
-  background("red");
+  background("yellow");
 
   button = createButton("CAMERA");
   button.mousePressed(openCamera);
