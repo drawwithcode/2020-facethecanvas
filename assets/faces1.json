@@ -1,0 +1,34 @@
+{
+  "faces" : [
+     {
+       "positionX" : 0.3,
+       "positionY" : 0.3,
+       "rightEyeX" : 0.3,
+       "rightEyeY" : 0.3,
+       "leftEyeX" : 0.3,
+       "leftEyeY" : 0.3,
+       "noseX" : 0.3,
+       "noseY" : 0.3
+    },
+     {
+       "positionX" : 0.3,
+       "positionY" : 0.3,
+       "rightEyeX" : 0.3,
+       "rightEyeY" : 0.3,
+       "leftEyeX" : 0.6,
+       "leftEyeY" : 0.3,
+       "noseX" : 0.5,
+       "noseY" : 0.6
+    },
+     {
+      "positionX" : 0.3,
+      "positionY" : 0.3,
+      "rightEyeX" : 0.3,
+      "rightEyeY" : 0.3,
+      "leftEyeX" : 0.3,
+      "leftEyeY" : 0.3,
+      "noseX" : 0.3,
+      "noseY" : 0.3
+    }
+  ]
+}

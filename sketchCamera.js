@@ -14,8 +14,33 @@ let whichArwork = url.searchParams.get("currentArtwork"); //serve per cartella p
 let whichFrame = url.searchParams.get("selectedFrame"); //serve per la cornice
 let hideFrame = 0;
 
+//NODE
+let poseNet;
+let pose;
+let faceData;
+let correctRightEye = {
+  x: 0,
+  y: 0,
+};
+let correctLeftEye = {
+  x: 0,
+  y: 0,
+};
+let correctNose  = {
+  x: 0,
+  y: 0,
+};
+let distRightEye;
+let distLeftEye;
+let distNose;
+let overlapRightEye;
+let overlapLeftEye;
+let overlapNose;
+let hidePose = 0;
+
 function preload(){
   loadFrame();
+  loadFaceData();
 }
 
 function setup() {
@@ -24,13 +49,18 @@ function setup() {
 
   showCanvas();
   showCapture();
+  loadPose();
   showButtons();
 }
 
 function draw() {
   showPhoto();
+  if(hidePose == 0) {
+    showPose();
+  }
 }
 
+//FIREBASE
 function firebaseConfiguration() {
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -54,11 +84,44 @@ function errData(err) {
   console.log('Error');
   console.log(err);
 }
+//FIREBASE
+
+//POSENET
+function loadPose() {
+  //dobbiamo invertire gli occhi per scale del capure, la trasformazione scale non permette a Node di funzionare
+  correctRightEye.x = (faceData.faces[whichFrame].rightEyeX)*width;
+  correctRightEye.y = (faceData.faces[whichFrame].rightEyeY)*height;
+
+  correctLeftEye.x = (faceData.faces[whichFrame].leftEyeX)*width;
+  correctLeftEye.y = (faceData.faces[whichFrame].leftEyeY)*height;
+
+  correctNose.x = (faceData.faces[whichFrame].noseX)*width;
+  correctNose.y = (faceData.faces[whichFrame].noseY)*height;
+
+  poseNet = ml5.poseNet(capture, modelLoaded);
+  poseNet.on('pose', gotPoses);
+}
+
+function gotPoses(poses)  {
+  //console.log(poses);
+  if (poses.length > 0) {
+    pose = poses[0].pose;
+  }
+}
+
+function modelLoaded() {
+  console.log('poseNet ready');
+}
+//POSENET
 
 function loadFrame() {
   //aggiungere if dopo &ricevuto
   console.log(whichFrame);
   frame = loadImage("./assets/images/artwork1/frames/frame"+whichFrame+".png");
+}
+
+function loadFaceData() {
+  faceData = loadJSON("./assets/faces"+whichArwork+".json");
 }
 
 function showCanvas() {
@@ -79,12 +142,70 @@ function showPhoto() {
   }
 }
 
+function showPose() {
+  strokeWeight(10);
+  noFill();
+
+  if(pose) {
+    distNose = dist(pose.nose.x, pose.nose.y, correctNose.x,correctNose.y);
+    distRightEye = dist(pose.rightEye.x, pose.rightEye.y, correctRightEye.x, correctRightEye.y);
+    distLeftEye = dist(pose.leftEye.x, pose.leftEye.y, correctLeftEye.x, correctLeftEye.y);
+
+    if(distRightEye<100) {
+      push();
+      stroke("#2ECC71");
+      ellipse(correctRightEye.x, correctRightEye.y, 50);
+      pop();
+      overlapRightEye = 1;
+    } else {
+      push();
+      stroke("red");
+      ellipse(correctRightEye.x, correctRightEye.y, 50);
+      pop();
+      overlapRightEye = 0;
+    }
+
+    if(distLeftEye<100) {
+      push();
+      stroke("#2ECC71");
+      ellipse(correctLeftEye.x, correctLeftEye.y, 50);
+      pop();
+      overlapLeftEye = 1;
+    } else {
+      push();
+      stroke("red");
+      ellipse(correctLeftEye.x, correctLeftEye.y, 50);
+      pop();
+      overlapLeftEye = 0;
+    }
+
+    if(distNose<100) {
+      push();
+      stroke("#2ECC71");
+      ellipse(correctNose.x, correctNose.y, 50);
+      pop();
+      overlapNose = 1;
+    } else {
+      push();
+      stroke("red");
+      ellipse(correctNose.x, correctNose.y, 50);
+      pop();
+      overlapNose = 0;
+    }
+  }
+
+  if(overlapRightEye==1 || overlapLeftEye==1 || overlapNose==1) {
+    takePhotoButton.mousePressed(takePhoto);
+  }
+
+}
+
 function showButtons() {
   backButton = createButton("BACK TO ARTWORK");
   backButton.mousePressed(openArtwork);
 
   takePhotoButton = createButton("TAKE PHOTO");
-  takePhotoButton.mousePressed(takePhoto);
+  // takePhotoButton.mousePressed(takePhoto);
 
   confirmButton = createButton("CONFIRM PHOTO");
   confirmButton.mousePressed(confirmPhoto);
@@ -100,6 +221,7 @@ function showButtons() {
 }
 
 function takePhoto() {
+  hidePose = 1;
   hideFrame = 1; //nasconde la cornice prima dell'invio al server
   //non riesco a evitare che non ci sia quando puoi scegliere di rifarla, mi dispice ahah ma non dipende da me
 
