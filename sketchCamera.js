@@ -62,8 +62,7 @@ function loadFrame() {
 }
 
 function showCanvas() {
-  //screen adaptation
-  cnv = createCanvas(400, 400);
+  cnv = createCanvas(400,400);
   cnv.id("canvas");
 }
 
@@ -74,7 +73,7 @@ function showCapture() {
 }
 
 function showPhoto() {
-  image(capture, width/2, height/2, 0, height);
+  image(capture, width/2, height/2, width, height);
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
   }
