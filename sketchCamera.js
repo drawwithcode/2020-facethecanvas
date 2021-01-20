@@ -7,10 +7,6 @@ let takePhotoButton;
 let confirmButton;
 let retakePhotoButton;
 
-// let frame;
-// let whichFrame = 1;
-// let hideFrame = 0;
-
 let frame;
 const urlString = window.location.href;
 const url = new URL(urlString);
@@ -67,6 +63,16 @@ function loadFrame() {
 
 function showCanvas() {
   cnv = createCanvas(400,400);
+  //screen adaptation
+  if(windowHeight > 700 || windowWidth > 700) {
+    cnv = createCanvas(500,500);
+  }
+  else if(windowWidth > windowHeight) {
+    cnv = createCanvas(windowHeight*0.7,windowHeight*0.7);
+  }
+  else {
+    cnv = createCanvas(windowWidth*0.7,windowWidth*0.7);
+  }
   cnv.id("canvas");
 }
 
@@ -77,7 +83,7 @@ function showCapture() {
 }
 
 function showPhoto() {
-  image(capture, width/2, height/2, width, height);
+  image(capture, width/2, height/2, 0, height);
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
   }
