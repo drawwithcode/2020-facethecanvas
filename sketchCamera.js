@@ -64,10 +64,7 @@ function loadFrame() {
 function showCanvas() {
   //cnv = createCanvas(400,400);
   //screen adaptation
-  if(windowHeight > 700 || windowWidth > 700) {
-    cnv = createCanvas(500,500);
-  }
-  else if(windowWidth > windowHeight) {
+  if(windowWidth > windowHeight) {
     cnv = createCanvas(windowHeight*0.7,windowHeight*0.7);
   }
   else {
