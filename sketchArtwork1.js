@@ -78,6 +78,6 @@ function showImages() {
 }
 
 function openCamera() {
-  // window.open('camera.html', '_self');
-  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open('camera.html', '_self');
+  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }

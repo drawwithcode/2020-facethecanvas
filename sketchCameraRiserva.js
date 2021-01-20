@@ -1,5 +1,6 @@
 let cnv;
 let capture;
+let database;
 let takenPhoto;
 
 let backButton;
@@ -7,15 +8,25 @@ let takePhotoButton;
 let confirmButton;
 let retakePhotoButton;
 
+let faces;
+// let correctRightEye;
+// let correctLeftEye;
+// let correctNose;
+
 //Cornici dei quadri, preparo tutte le variabili e poi nel preload chiamo
 //solo quella indicata nel passaggio da index(Artwork) a qua (Camera), evitando il peso di caricarle tutte
 //sarebbe dispersivo usare Firebase anche per questa cosa perchè è molto pesante e complicato
 let frame;
-let whichFrame = 1;
-let hideFrame = 0;
+const urlString = window.location.href;
+const url = new URL(urlString);
+let whichArwork = url.searchParams.get("currentArtwork");; //serve per cartella per la cornice e per openArtwork();
+let whichFrame = url.searchParams.get("selectedFrame"); //serve per la cornice
+let hideFrame = 0; //nascondere o mostrare cornice, va tolta per raccogliere la foto
+//queste informazioni servono anche per confirmPhoto(), per indicare dove va la foto, in modo che l'artwork la pesca giusta
 
 function preload(){
   loadFrame();
+//  loadFace();
 }
 
 function setup() {
@@ -58,11 +69,25 @@ function errData(err) {
 function loadFrame() {
   //aggiungere if dopo &ricevuto
   console.log(whichFrame);
+  console.log(whichArwork);
   frame = loadImage("./assets/images/artwork1/frames/frame"+whichFrame+".png");
 }
 
+function loadFace() {
+  //faces = loadJSON("./assets/data/faces.json");
+}
+
 function showCanvas() {
-  cnv = createCanvas(400,400);
+  //screen adaptation
+  if(windowHeight > 700) {
+    cnv = createCanvas(500,500);
+  }
+  else if(windowWidth > windowHeight) {
+    cnv = createCanvas(windowHeight*0.7,windowHeight*0.7);
+  }
+  else {
+    cnv = createCanvas(windowWidth*0.9,windowWidth*0.9);
+  }
   cnv.id("canvas");
 }
 
@@ -73,7 +98,7 @@ function showCapture() {
 }
 
 function showPhoto() {
-  image(capture, width/2, height/2, width, height);
+  image(capture, width/2, height/2, 0, height);
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
   }
@@ -126,11 +151,14 @@ function retakePhoto() {
 function confirmPhoto() {
   let canvas = document.getElementById("canvas");
   let dataURL = canvas.toDataURL();
+
   let data = {
-    id: "PROVA",
+    id: "PROVAAA",
     photoImage: dataURL
   }
-  let ref = database.ref("photos/quadro1");
+
+  let ref = database.ref('photos/quadro1');
+  console.log(ref);
   ref.push(data);
 
   backButton.hide();
@@ -143,5 +171,5 @@ function confirmPhoto() {
 
 function openArtwork() {
   //se questo link viene inserito nella funzione confirmPhoto() ci sono problemi col database, che non riceve la foto
-  window.open('artwork1.html', '_self');
+  window.open('artwork'+whichArwork+'.html', '_self');
 }
