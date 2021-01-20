@@ -62,7 +62,7 @@ function loadFrame() {
 }
 
 function showCanvas() {
-  cnv = createCanvas(400,400);
+  cnv = createCanvas(500, 500);
   cnv.id("canvas");
 }
 
