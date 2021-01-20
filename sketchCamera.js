@@ -10,7 +10,7 @@ let retakePhotoButton;
 let frame;
 const urlString = window.location.href;
 const url = new URL(urlString);
-let whichArwork = url.searchParams.get("currentArtwork");; //serve per cartella per la cornice e per openArtwork();
+let whichArwork = url.searchParams.get("currentArtwork"); //serve per cartella per la cornice e per openArtwork();
 let whichFrame = url.searchParams.get("selectedFrame"); //serve per la cornice
 let hideFrame = 0;
 
