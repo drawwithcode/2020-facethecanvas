@@ -1,0 +1,53 @@
+body {
+  padding: 5vh;
+  margin: 0;
+  background-color: black;
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+}
+
+button {
+  background-color: black;
+  display: inline-block;
+  border-radius: 0px;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  border: 2px solid white;
+  color: white;
+  font-size: 20px;
+  font-family: Helvetica;
+  display: block;
+}
+
+button:hover{
+  background-color: crimson;
+  color:white;
+}
+
+#backButton {
+  top: 60vh;
+  left: 50%;
+}
+
+#takePhotoButton {
+  top: 65vh;
+  left: 50%;
+}
+
+#confirmButton {
+  top: 70vh;
+  left: 50%;
+}
+
+#retakePhotoButton {
+  top: 65vh;
+  left: 50%;
+}
+
+#sendButton {
+  top: 60%;
+  left: 50%;
+}

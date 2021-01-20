@@ -203,21 +203,26 @@ function showPose() {
 function showButtons() {
   backButton = createButton("BACK TO ARTWORK");
   backButton.mousePressed(openArtwork);
+  backButton.id("backButton");
 
   takePhotoButton = createButton("TAKE PHOTO");
-  // takePhotoButton.mousePressed(takePhoto);
+  takePhotoButton.id("takePhotoButton");
 
   confirmButton = createButton("CONFIRM PHOTO");
   confirmButton.mousePressed(confirmPhoto);
   confirmButton.hide();
+  confirmButton.id("confirmButton");
 
   retakePhotoButton = createButton("RETAKE PHOTO");
   retakePhotoButton.mousePressed(retakePhoto);
   retakePhotoButton.hide();
+  retakePhotoButton.id("retakePhotoButton");
 
   sendButton = createButton("RETURN");
   sendButton.mousePressed(openArtwork);
   sendButton.hide();
+  sendButton.id("sendButton");
+
 }
 
 function takePhoto() {
