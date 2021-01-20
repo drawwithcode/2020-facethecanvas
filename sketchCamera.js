@@ -1,11 +1,17 @@
 let cnv;
 let capture;
+let database;
 let takenPhoto;
 
 let backButton;
 let takePhotoButton;
 let confirmButton;
 let retakePhotoButton;
+
+let faces;
+// let correctRightEye;
+// let correctLeftEye;
+// let correctNose;
 
 //Cornici dei quadri, preparo tutte le variabili e poi nel preload chiamo
 //solo quella indicata nel passaggio da index(Artwork) a qua (Camera), evitando il peso di caricarle tutte
@@ -20,6 +26,7 @@ let hideFrame = 0; //nascondere o mostrare cornice, va tolta per raccogliere la 
 
 function preload(){
   loadFrame();
+//  loadFace();
 }
 
 function setup() {
@@ -60,10 +67,14 @@ function errData(err) {
 }
 
 function loadFrame() {
-  //aggiungere if dopo &ricevuto
-  console.log(whichFrame);
-  console.log(whichArwork);
+//   //aggiungere if dopo &ricevuto
+// console.log(whichFrame);
+// console.log(whichArwork);
   frame = loadImage("./assets/images/artwork1/frames/frame"+whichFrame+".png");
+}
+
+function loadFace() {
+  faces = loadJSON("./assets/data/faces.json");
 }
 
 function showCanvas() {
@@ -138,14 +149,16 @@ function retakePhoto() {
 }
 
 function confirmPhoto() {
-  // resizeCanvas(150, 150);
   let canvas = document.getElementById("canvas");
   let dataURL = canvas.toDataURL();
+
   let data = {
-    id: "PROVA",
+    id: "PROVAAA",
     photoImage: dataURL
   }
-  let ref = database.ref("photos/quadro1");
+
+  let ref = database.ref('photos/quadro1');
+  console.log(ref);
   ref.push(data);
 
   backButton.hide();

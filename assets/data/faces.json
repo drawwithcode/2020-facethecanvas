@@ -1,89 +1,24 @@
 {
   "artwork1" : [
-
      {
       "name" : "face1";
       "position" : {
-        "x": ,
-        "y": ,
+        "x": 0.5,
+        "y": 0.5,
       },
       "rightEye" : {
-        "x": ,
-        "y": ,
+        "x": 0.3,
+        "y": 0.3,
       },
       "leftEye" : {
-        "x": ,
-        "y": ,
+        "x": 0.6,
+        "y": 0.3,
       },
       "nose" : {
-        "x": ,
-        "y": ,
+        "x": 0.5,
+        "y": 0.6,
       }
     },
-
-    {
-     "name" : "face2";
-     "position" : {
-       "x": ,
-       "y": ,
-     },
-     "rightEye" : {
-       "x": ,
-       "y": ,
-     },
-     "leftEye" : {
-       "x": ,
-       "y": ,
-     },
-     "nose" : {
-       "x": ,
-       "y": ,
-     }
-   },
-
  ],
 
-  "artwork2" : [
-
-     {
-      "name" : "face1";
-      "position" : {
-        "x": ,
-        "y": ,
-      },
-      "rightEye" : {
-        "x": ,
-        "y": ,
-      },
-      "leftEye" : {
-        "x": ,
-        "y": ,
-      },
-      "nose" : {
-        "x": ,
-        "y": ,
-      }
-    },
-
-    {
-     "name" : "face2";
-     "position" : {
-       "x": ,
-       "y": ,
-     },
-     "rightEye" : {
-       "x": ,
-       "y": ,
-     },
-     "leftEye" : {
-       "x": ,
-       "y": ,
-     },
-     "nose" : {
-       "x": ,
-       "y": ,
-     }
-   },
-
- ],
 }
