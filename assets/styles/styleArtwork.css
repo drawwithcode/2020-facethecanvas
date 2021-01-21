@@ -1,0 +1,32 @@
+body {
+  padding: 5vh;
+  margin: 0;
+  background-color: black;
+}
+
+#canvas {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50vh;
+  left: 50%;
+}
+
+p {
+  padding: 3vh;
+  position: absolute;
+  text-align: left;
+  color: white;
+  font-size: 20px;
+  font-family: Quicksand;
+  top: 10vh;
+}
+
+h1 {
+  padding: 3vh;
+  position: absolute;
+  text-align: left;
+  color: white;
+  font-size: 40px;
+  font-family: Quicksand;
+  /* Quicksand */
+}

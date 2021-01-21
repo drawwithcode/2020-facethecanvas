@@ -1,5 +1,6 @@
 let cnv;
 var allPhotos = [];
+let cuttedArtwork;
 let faceData;
 var loading = 0;
 
@@ -9,8 +10,12 @@ const url = new URL(urlString);
 var currentArtwork = 1; //quadro attuale, serve per Camera per le cartelle nel preload
 var selectedFrame = 0; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
 
+let logo;
+let p;
+
 function preload() {
   //firebaseConfiguration();
+  cuttedArtwork = loadImage("./assets/images/artwork"+currentArtwork+"/cutted"+currentArtwork+".png");
   loadFaceData();
   loading = 1;
 }
@@ -18,19 +23,23 @@ function preload() {
 function setup() {
   imageMode(CENTER);
   showCanvas();
-  background("green");
+  background("black");
 
   button = createButton("CAMERA");
   button.mousePressed(openCamera);
+  p = createP("Paragrafo");
+  logo = createElement("h1","Titolo");
+
 }
 
 function draw() {
   if(loading==2){
     // showImages();
   };
+  image(cuttedArtwork,width/2,height/2,width,height);
   showAddedFaces();
   assignSelectedFrame()
-
+  // noLoop();
 }
 
 function firebaseConfiguration() {
