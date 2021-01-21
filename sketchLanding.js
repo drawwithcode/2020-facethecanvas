@@ -9,7 +9,7 @@ function preload() {
 
 function setup() {
   createCanvas(windowWidth,windowHeight);
-  background("yellow");
+  background("orange");
 
   fill("white");
   textAlign(CENTER);

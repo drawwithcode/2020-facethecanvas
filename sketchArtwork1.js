@@ -1,3 +1,4 @@
+let cnv;
 var allPhotos = [];
 var loading = 0;
 
@@ -13,8 +14,8 @@ function preload() {
 }
 
 function setup() {
-  //imageMode(CENTER);
-  createCanvas(400,400);
+  imageMode(CENTER);
+  showCanvas();
   background("green");
 
   button = createButton("CAMERA");
@@ -30,13 +31,13 @@ function draw() {
 function firebaseConfiguration() {
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyAg9AWOJiDQsX_dtzvR-WoUntj5NWcdv2k",
-    authDomain: "face-the-canvas.firebaseapp.com",
-    databaseURL: "https://face-the-canvas-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "face-the-canvas",
-    storageBucket: "face-the-canvas.appspot.com",
-    messagingSenderId: "828882691849",
-    appId: "1:828882691849:web:c9f18389eb5602de5055d8"
+    apiKey: "AIzaSyD141zbYjuFt7VCrp9QocPYA6bJfhwZZkQ",
+    authDomain: "facethecanvas.firebaseapp.com",
+    databaseURL: "https://facethecanvas-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "facethecanvas",
+    storageBucket: "facethecanvas.appspot.com",
+    messagingSenderId: "667902225848",
+    appId: "1:667902225848:web:246cd990165ea8369c334d"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -66,6 +67,15 @@ function errData(err) {
   console.log(err);
 }
 
+function showCanvas() {
+  if(windowWidth>windowHeight){
+    cnv = createCanvas(windowHeight*0.9, windowHeight*0.9);
+  } else {
+    cnv = createCanvas(windowWidth*0.9, windowWidth*0.9);
+  }
+  cnv.id("canvas");
+}
+
 function showImages() {
   //Ciclo for che usa la lunghezza dell'array allImages deve aspettare che l'array si riempia,
   // quindi la funzione va chiamata nella funzione gotData().
@@ -81,6 +91,6 @@ function openCamera() {
   // window.open('camera.html', '_self');
 
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
-  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
-  window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  // window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }

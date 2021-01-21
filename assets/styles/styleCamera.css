@@ -8,46 +8,74 @@ body {
   align-items: center;
 }
 
-button {
-  background-color: black;
-  display: inline-block;
-  border-radius: 0px;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  text-align: center;
-  border: 2px solid white;
-  color: white;
-  font-size: 20px;
-  font-family: Helvetica;
-  display: block;
-}
+/* DESKTOP */
+@media screen and (min-width: 1024px) {
+  body {
+    padding: 5vh;
+    margin: 0;
+    background-color: green;
+    display: flex;
 
-button:hover{
-  background-color: crimson;
-  color:white;
-}
+    justify-content: center;
+    align-items: center;
+  }
 
-#backButton {
-  top: 60vh;
-  left: 50%;
-}
+  p {
+    position: absolute;
+    transform: translate(-50%);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Helvetica;
+  }
 
-#takePhotoButton {
-  top: 65vh;
-  left: 50%;
-}
+  #poseText {
+    top: 55vh;
+    left: 50%;
+  }
 
-#confirmButton {
-  top: 70vh;
-  left: 50%;
-}
+  button {
+    background-color: black;
+    display: inline-block;
+    border-radius: 0px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid white;
+    color: white;
+    font-size: 20px;
+    font-family: Helvetica;
+    display: block;
+  }
 
-#retakePhotoButton {
-  top: 65vh;
-  left: 50%;
-}
+  button:hover{
+    background-color: crimson;
+    color:white;
+  }
 
-#sendButton {
-  top: 60%;
-  left: 50%;
+  #backButton {
+    top: 65vh;
+    left: 50%;
+  }
+
+  #takePhotoButton {
+    top: 70vh;
+    left: 50%;
+  }
+
+  #confirmButton {
+    top: 70vh;
+    left: 50%;
+  }
+
+  #retakePhotoButton {
+    top: 65vh;
+    left: 50%;
+  }
+
+  #sendButton {
+    top: 60%;
+    left: 50%;
+  }
+
 }

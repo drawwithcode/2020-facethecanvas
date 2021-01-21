@@ -64,13 +64,13 @@ function draw() {
 function firebaseConfiguration() {
   // Your web app's Firebase configuration
   var firebaseConfig = {
-    apiKey: "AIzaSyAg9AWOJiDQsX_dtzvR-WoUntj5NWcdv2k",
-    authDomain: "face-the-canvas.firebaseapp.com",
-    databaseURL: "https://face-the-canvas-default-rtdb.europe-west1.firebasedatabase.app",
-    projectId: "face-the-canvas",
-    storageBucket: "face-the-canvas.appspot.com",
-    messagingSenderId: "828882691849",
-    appId: "1:828882691849:web:c9f18389eb5602de5055d8"
+    apiKey: "AIzaSyD141zbYjuFt7VCrp9QocPYA6bJfhwZZkQ",
+    authDomain: "facethecanvas.firebaseapp.com",
+    databaseURL: "https://facethecanvas-default-rtdb.europe-west1.firebasedatabase.app",
+    projectId: "facethecanvas",
+    storageBucket: "facethecanvas.appspot.com",
+    messagingSenderId: "667902225848",
+    appId: "1:667902225848:web:246cd990165ea8369c334d"
   };
   // Initialize Firebase
   firebase.initializeApp(firebaseConfig);
@@ -117,7 +117,7 @@ function modelLoaded() {
 function loadFrame() {
   //aggiungere if dopo &ricevuto
   console.log(whichFrame);
-  frame = loadImage("./assets/images/artwork1/frames/frame"+whichFrame+".png");
+  frame = loadImage("./assets/images/artwork"+whichArwork+"/frames/frame"+whichFrame+".png");
 }
 
 function loadFaceData() {
@@ -143,10 +143,15 @@ function showPhoto() {
 }
 
 function showPose() {
+
   strokeWeight(10);
   noFill();
 
   if(pose) {
+    ellipse(pose.nose.x,pose.nose.y,10);
+    ellipse(pose.rightEye.x,pose.rightEye.y,10);
+    ellipse(pose.leftEye.x,pose.leftEye.y,10);
+
     distNose = dist(pose.nose.x, pose.nose.y, correctNose.x,correctNose.y);
     distRightEye = dist(pose.rightEye.x, pose.rightEye.y, correctRightEye.x, correctRightEye.y);
     distLeftEye = dist(pose.leftEye.x, pose.leftEye.y, correctLeftEye.x, correctLeftEye.y);
@@ -201,6 +206,9 @@ function showPose() {
 }
 
 function showButtons() {
+  poseText = createP("Match your eyes and nose with the circles");
+  poseText.id("poseText");
+
   backButton = createButton("BACK TO ARTWORK");
   backButton.mousePressed(openArtwork);
   backButton.id("backButton");
@@ -234,6 +242,7 @@ function takePhoto() {
   takenPhoto.copy(cnv, 0, 0, cnv.width, cnv.height, 0, 0, cnv.width, cnv.height);
 
   takePhotoButton.hide();
+  poseText.hide();
   confirmButton.show();
   retakePhotoButton.show();
 
@@ -246,6 +255,7 @@ function retakePhoto() {
   confirmButton.hide();
   retakePhotoButton.hide();
   takePhotoButton.show();
+  poseText.show();
 
   loop();
 }
