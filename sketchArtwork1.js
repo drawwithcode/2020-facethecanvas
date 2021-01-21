@@ -1,15 +1,17 @@
 let cnv;
 var allPhotos = [];
+let faceData;
 var loading = 0;
 
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
 const url = new URL(urlString);
 var currentArtwork = 1; //quadro attuale, serve per Camera per le cartelle nel preload
-var selectedFrame = 1; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
+var selectedFrame = 0; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
 
 function preload() {
-  firebaseConfiguration();
+  //firebaseConfiguration();
+  loadFaceData();
   loading = 1;
 }
 
@@ -23,9 +25,12 @@ function setup() {
 }
 
 function draw() {
-  // if(loading==2){
-  //   showImages();
-  // }
+  if(loading==2){
+    // showImages();
+  };
+  showAddedFaces();
+  assignSelectedFrame()
+
 }
 
 function firebaseConfiguration() {
@@ -67,6 +72,10 @@ function errData(err) {
   console.log(err);
 }
 
+function loadFaceData() {
+  faceData = loadJSON("./assets/faces1.json");
+}
+
 function showCanvas() {
   if(windowWidth>windowHeight){
     cnv = createCanvas(windowHeight*0.9, windowHeight*0.9);
@@ -87,10 +96,38 @@ function showImages() {
   }
 }
 
+function showAddedFaces() {
+  for (let i=0; i < faceData.faces.length; i++) {
+    ellipse((faceData.faces[i].positionX)*width,(faceData.faces[i].positionY)*height,50);
+    textSize(30);
+    textAlign(CENTER, CENTER);
+    text(i,(faceData.faces[i].positionX)*width,(faceData.faces[i].positionY)*height);
+  }
+}
+
+function assignSelectedFrame() {
+  if (dist(mouseX, mouseY, (faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height) < 50) {
+    selectedFrame = 1;
+  } else {
+    selectedFrame = 0;
+  }
+
+  console.log(selectedFrame);
+  if(selectedFrame != 0) {
+    cnv.mousePressed(openCamera);
+  } else {
+    cnv.mousePressed(openNothing);
+  }
+}
+
+function openNothing() {
+  console.log("CLICK ON A FACE");
+}
+
 function openCamera() {
   // window.open('camera.html', '_self');
 
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
-  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
-  // window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }

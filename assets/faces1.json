@@ -1,8 +1,8 @@
 {
   "faces" : [
-     {
-       "positionX" : 0,
-       "positionY" : 0,
+    {
+       "positionX" : 0.8,
+       "positionY" : 0.7,
        "rightEyeX" : 0,
        "rightEyeY" : 0,
        "leftEyeX" : 0,
@@ -10,7 +10,7 @@
        "noseX" : 0,
        "noseY" : 0
     },
-     {
+    {
        "positionX" : 0.3,
        "positionY" : 0.3,
        "rightEyeX" : 0.3,
@@ -19,16 +19,6 @@
        "leftEyeY" : 0.3,
        "noseX" : 0.5,
        "noseY" : 0.6
-    },
-     {
-      "positionX" : 0.3,
-      "positionY" : 0.3,
-      "rightEyeX" : 0.3,
-      "rightEyeY" : 0.3,
-      "leftEyeX" : 0.3,
-      "leftEyeY" : 0.3,
-      "noseX" : 0.3,
-      "noseY" : 0.3
     }
   ]
 }
