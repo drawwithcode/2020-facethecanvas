@@ -159,35 +159,35 @@ function showPose() {
     distRightEye = dist(pose.rightEye.x-120, pose.rightEye.y-30, correctRightEye.x, correctRightEye.y);
     distLeftEye = dist(pose.leftEye.x-120, pose.leftEye.y-30, correctLeftEye.x, correctLeftEye.y);
 
-    if(distRightEye<100) {
+    if(distRightEye<80) {
       push();
       stroke("#2ECC71");
-      ellipse(correctRightEye.x, correctRightEye.y, 30);
+      ellipse(correctRightEye.x, correctRightEye.y, 40);
       pop();
       overlapRightEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctRightEye.x, correctRightEye.y, 30);
+      ellipse(correctRightEye.x, correctRightEye.y, 40);
       pop();
       overlapRightEye = 0;
     }
 
-    if(distLeftEye<100) {
+    if(distLeftEye<80) {
       push();
       stroke("#2ECC71");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 30);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 40);
       pop();
       overlapLeftEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 30);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 40);
       pop();
       overlapLeftEye = 0;
     }
 
-    if(distNose<100) {
+    if(distNose<80) {
       push();
       stroke("#2ECC71");
       ellipse(correctNose.x, correctNose.y, 50);
@@ -202,6 +202,7 @@ function showPose() {
     }
   }
 
+//DA SOSTITUIRE CON &&
   if(overlapRightEye==1 || overlapLeftEye==1 || overlapNose==1) {
     takePhotoButton.mousePressed(takePhoto);
   }
@@ -253,6 +254,7 @@ function takePhoto() {
 }
 
 function retakePhoto() {
+  hidePose = 0;
   hideFrame = 0;
 
   confirmButton.hide();
@@ -270,7 +272,7 @@ function confirmPhoto() {
     id: "PROVA",
     photoImage: dataURL
   }
-  let ref = database.ref("photos/quadro1");
+  let ref = database.ref("photos/artwork"+whichArwork+"/face"+whichFrame);
   ref.push(data);
 
   backButton.hide();

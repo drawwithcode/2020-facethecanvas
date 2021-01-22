@@ -1,5 +1,7 @@
 let cnv;
-var allPhotos = [];
+var allPhotos1 = [];
+var allPhotos2 = [];
+var allPhotos3 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -14,7 +16,7 @@ let logo;
 let p;
 
 function preload() {
-  //firebaseConfiguration();
+  firebaseConfiguration();
   cuttedArtwork = loadImage("./assets/images/artwork"+currentArtwork+"/cutted"+currentArtwork+".png");
   loadFaceData();
   loading = 1;
@@ -35,13 +37,16 @@ function setup() {
 function draw() {
   if(loading==2){
     // showImages();
+    showPhotos();
+    loading = 3;
   };
   image(cuttedArtwork,width/2,height/2,width,height);
   showAddedFaces();
-  assignSelectedFrame()
+  // assignSelectedFrame();
   // noLoop();
 }
 
+//FIREBASE
 function firebaseConfiguration() {
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -57,29 +62,75 @@ function firebaseConfiguration() {
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
 
-  let ref = database.ref('photos/quadro1');
-  ref.once('value', gotData, errData);
+  let ref1 = database.ref('photos/artwork1/face1');
+  ref1.once('value', gotData1, errData);
+
+  let ref2 = database.ref('photos/artwork1/face2');
+  ref2.once('value', gotData2, errData);
+
+  let ref3 = database.ref('photos/artwork1/face3');
+  ref3.once('value', gotData3, errData);
 }
 
-function gotData(data) {
-  var scores = data.val();
-  var keys = Object.keys(scores);
+//an array for every face, with all the photos of that face
+//FACES
+function gotData1(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
   //console.log(keys);
 
+  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
-    allPhotos[i] = loadImage(photoImage);
-    console.log(allPhotos.length + "Hello");
+    allPhotos1[i] = loadImage(photoImage);
+    console.log("artwork1/face1 loaded="+allPhotos1.length);
   }
+
+  // loading = 2;
+}
+
+function gotData2(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+  //console.log(keys);
+
+  //questa operazione va fatta per ogni faccia
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos2[i] = loadImage(photoImage);
+    console.log("artwork1/face2 loaded="+allPhotos2.length);
+  }
+
+  // loading = 2;
+}
+
+function gotData3(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+  //console.log(keys);
+
+  //questa operazione va fatta per ogni faccia
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos3[i] = loadImage(photoImage);
+    console.log("artwork1/face3 loaded="+allPhotos3.length);
+  }
+
   loading = 2;
 }
+//FACES
 
 function errData(err) {
   console.log("Error");
   console.log(err);
 }
+//FIREBASE
 
 function loadFaceData() {
   faceData = loadJSON("./assets/faces1.json");
@@ -99,9 +150,18 @@ function showImages() {
   // quindi la funzione va chiamata nella funzione gotData().
 
   // console.log(allPhotos[2]);
-  for (let i=0; i < allPhotos.length; i++) {
-    //console.log(allPhotos[i]);
-    image(allPhotos[i],80*i,0,80,80);
+  // for (let i=0; i < allPhotos.length; i++) {
+  //   //console.log(allPhotos[i]);
+  //   image(allPhotos[i],80*i,0,80,80);
+  // }
+  console.log("okk");
+}
+
+function showPhotos() {
+  //console.log(allPhotos.length);
+
+  if (allPhotos1.length > 0) {
+    console.log("SCIAOBELO");
   }
 }
 
@@ -117,6 +177,10 @@ function showAddedFaces() {
 function assignSelectedFrame() {
   if (dist(mouseX, mouseY, (faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height) < 50) {
     selectedFrame = 1;
+  } else if (dist(mouseX, mouseY, (faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height) < 50) {
+    selectedFrame = 2;
+  } else if (dist(mouseX, mouseY, (faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height) < 50) {
+    selectedFrame = 3;
   } else {
     selectedFrame = 0;
   }

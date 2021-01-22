@@ -1,7 +1,7 @@
 body {
   padding: 5vh;
   margin: 0;
-  background-color: black;
+  background-color: green;
   display: flex;
 
   justify-content: center;
@@ -13,7 +13,7 @@ body {
   body {
     padding: 5vh;
     margin: 0;
-    background-color: green;
+    background-color: black;
     display: flex;
 
     justify-content: center;
@@ -26,7 +26,7 @@ body {
     text-align: center;
     color: white;
     font-size: 20px;
-    font-family: Helvetica;
+    font-family: Quicksand;
   }
 
   #poseText {
@@ -37,14 +37,14 @@ body {
   button {
     background-color: black;
     display: inline-block;
-    border-radius: 0px;
+    border-radius: 8px;
     position: absolute;
     transform: translate(-50%, -50%);
     text-align: center;
-    border: 2px solid white;
+    border: 2px solid gray;
     color: white;
     font-size: 20px;
-    font-family: Helvetica;
+    font-family: Quicksand;
     display: block;
   }
 
@@ -64,17 +64,17 @@ body {
   }
 
   #confirmButton {
-    top: 70vh;
+    top: 75vh;
     left: 50%;
   }
 
   #retakePhotoButton {
-    top: 65vh;
+    top: 70vh;
     left: 50%;
   }
 
   #sendButton {
-    top: 60%;
+    top: 65%;
     left: 50%;
   }
 
