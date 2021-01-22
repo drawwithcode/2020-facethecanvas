@@ -2,6 +2,8 @@ let cnv;
 var allPhotos1 = [];
 var allPhotos2 = [];
 var allPhotos3 = [];
+var allPhotos4 = [];
+var allPhotos5 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -9,7 +11,7 @@ var loading = 0;
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
 const url = new URL(urlString);
-var currentArtwork = 1; //quadro attuale, serve per Camera per le cartelle nel preload
+var currentArtwork = 4; //quadro attuale, serve per Camera per le cartelle nel preload
 var selectedFrame = 0; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
 
 let logo;
@@ -36,9 +38,9 @@ function setup() {
 
 function draw() {
   if(loading==2){
-    image(cuttedArtwork,width/2,height/2,width,height);
-    showAddedFaces();
     showPhotos();
+    image(cuttedArtwork,width/2,height/2,width,height);
+    //showAddedFaces();
     loading = 3;
   };
 
@@ -63,14 +65,20 @@ function firebaseConfiguration() {
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
 
-  let ref1 = database.ref('photos/artwork1/face1');
+  let ref1 = database.ref('photos/artwork4/face1');
   ref1.once('value', gotData1, errData);
 
-  let ref2 = database.ref('photos/artwork1/face2');
+  let ref2 = database.ref('photos/artwork4/face2');
   ref2.once('value', gotData2, errData);
 
-  let ref3 = database.ref('photos/artwork1/face3');
+  let ref3 = database.ref('photos/artwork4/face3');
   ref3.once('value', gotData3, errData);
+
+  let ref4 = database.ref('photos/artwork4/face4');
+  ref4.once('value', gotData4, errData);
+
+  let ref5 = database.ref('photos/artwork4/face5');
+  ref5.once('value', gotData5, errData);
 }
 
 //an array for every face, with all the photos of that face
@@ -78,6 +86,7 @@ function firebaseConfiguration() {
 function gotData1(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
+  //console.log(keys);
 
   //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
@@ -85,7 +94,7 @@ function gotData1(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos1[i] = loadImage(photoImage);
-    console.log("artwork1/face1 loaded="+allPhotos1.length);
+    console.log("artwork4/face1 loaded="+allPhotos1.length);
   }
 
   // loading = 2;
@@ -94,6 +103,7 @@ function gotData1(data) {
 function gotData2(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
+  //console.log(keys);
 
   //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
@@ -101,7 +111,7 @@ function gotData2(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos2[i] = loadImage(photoImage);
-    console.log("artwork1/face2 loaded="+allPhotos2.length);
+    console.log("artwork4/face2 loaded="+allPhotos2.length);
   }
 
   // loading = 2;
@@ -110,6 +120,7 @@ function gotData2(data) {
 function gotData3(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
+  //console.log(keys);
 
   //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
@@ -117,7 +128,41 @@ function gotData3(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos3[i] = loadImage(photoImage);
-    console.log("artwork1/face3 loaded="+allPhotos3.length);
+    console.log("artwork4/face3 loaded="+allPhotos3.length);
+  }
+
+  // loading = 2;
+}
+
+function gotData4(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+  //console.log(keys);
+
+  //questa operazione va fatta per ogni faccia
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos4[i] = loadImage(photoImage);
+    console.log("artwork4/face4 loaded="+allPhotos4.length);
+  }
+
+  // loading = 2;
+}
+
+function gotData5(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+  //console.log(keys);
+
+  //questa operazione va fatta per ogni faccia
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos5[i] = loadImage(photoImage);
+    console.log("artwork4/face5 loaded="+allPhotos5.length);
   }
 
   loading = 2;
@@ -131,7 +176,7 @@ function errData(err) {
 //FIREBASE
 
 function loadFaceData() {
-  faceData = loadJSON("./assets/faces1.json");
+  faceData = loadJSON("./assets/faces4.json");
 }
 
 function showCanvas() {
@@ -143,23 +188,35 @@ function showCanvas() {
   cnv.id("canvas");
 }
 
-function showImages() {
-  //Ciclo for che usa la lunghezza dell'array allImages deve aspettare che l'array si riempia,
-  // quindi la funzione va chiamata nella funzione gotData().
-
-  // console.log(allPhotos[2]);
-  // for (let i=0; i < allPhotos.length; i++) {
-  //   //console.log(allPhotos[i]);
-  //   image(allPhotos[i],80*i,0,80,80);
-  // }
-  console.log("okk");
-}
-
 function showPhotos() {
   if (allPhotos1.length >= 0) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,80,80);
+    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos2.length >= 0) {
+    let lastAddedFace = allPhotos2.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos3.length >= 0) {
+    let lastAddedFace = allPhotos3.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos4.length >= 0) {
+    let lastAddedFace = allPhotos4.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos5.length >= 0) {
+    let lastAddedFace = allPhotos5.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/6,width/6);
   }
 
 }
@@ -180,6 +237,10 @@ function assignSelectedFrame() {
     selectedFrame = 2;
   } else if (dist(mouseX, mouseY, (faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height) < 50) {
     selectedFrame = 3;
+  } else if (dist(mouseX, mouseY, (faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height) < 50) {
+    selectedFrame = 4;
+  } else if (dist(mouseX, mouseY, (faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height) < 50) {
+    selectedFrame = 5;
   } else {
     selectedFrame = 0;
   }

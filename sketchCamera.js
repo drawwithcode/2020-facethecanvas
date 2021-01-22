@@ -146,48 +146,48 @@ function showPhoto() {
 
 function showPose() {
 
-  strokeWeight(8);
+  strokeWeight(5);
   noFill();
 
   if(pose) {
     //I don't know why but PoseNet translate the position of eyes and nose 120x,30y (MISTERO DELLA FEDE)
-    ellipse(pose.nose.x-120,pose.nose.y-30,20);
-    ellipse(pose.rightEye.x-120,pose.rightEye.y-30,10);
-    ellipse(pose.leftEye.x-120,pose.leftEye.y-30,10);
+    // ellipse(pose.nose.x-120,pose.nose.y-30,20);
+    // ellipse(pose.rightEye.x-120,pose.rightEye.y-30,10);
+    // ellipse(pose.leftEye.x-120,pose.leftEye.y-30,10);
 
     distNose = dist(pose.nose.x-120, pose.nose.y-30, correctNose.x,correctNose.y);
     distRightEye = dist(pose.rightEye.x-120, pose.rightEye.y-30, correctRightEye.x, correctRightEye.y);
     distLeftEye = dist(pose.leftEye.x-120, pose.leftEye.y-30, correctLeftEye.x, correctLeftEye.y);
 
-    if(distRightEye<80) {
+    if(distRightEye<70) {
       push();
       stroke("#2ECC71");
-      ellipse(correctRightEye.x, correctRightEye.y, 40);
+      ellipse(correctRightEye.x, correctRightEye.y, 20);
       pop();
       overlapRightEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctRightEye.x, correctRightEye.y, 40);
+      ellipse(correctRightEye.x, correctRightEye.y, 20);
       pop();
       overlapRightEye = 0;
     }
 
-    if(distLeftEye<80) {
+    if(distLeftEye<70) {
       push();
       stroke("#2ECC71");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 40);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 20);
       pop();
       overlapLeftEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 40);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 20);
       pop();
       overlapLeftEye = 0;
     }
 
-    if(distNose<80) {
+    if(distNose<70) {
       push();
       stroke("#2ECC71");
       ellipse(correctNose.x, correctNose.y, 50);
@@ -210,7 +210,7 @@ function showPose() {
 }
 
 function showButtons() {
-  poseText = createP("Match your eyes and nose with the circles");
+  poseText = createP("Match your eyes and nose with the circles before taking the photo");
   poseText.id("poseText");
 
   backButton = createButton("BACK TO ARTWORK");

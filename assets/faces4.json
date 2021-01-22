@@ -1,8 +1,8 @@
 {
   "faces" : [
     {
-       "positionX" : 0.8,
-       "positionY" : 0.7,
+       "positionX" : 0,
+       "positionY" : 0,
        "rightEyeX" : 0,
        "rightEyeY" : 0,
        "leftEyeX" : 0,
@@ -11,54 +11,54 @@
        "noseY" : 0
     },
     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
+       "positionX" : 0.455,
+       "positionY" : 0.174,
        "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
-       "leftEyeX" : 0.6,
-       "leftEyeY" : 0.3,
+       "rightEyeY" : 0.6,
+       "leftEyeX" : 0.5,
+       "leftEyeY" : 0.5,
        "noseX" : 0.5,
        "noseY" : 0.6
     },
     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
+       "positionX" : 0.242,
+       "positionY" : 0.254,
        "rightEyeX" : 0.3,
        "rightEyeY" : 0.3,
-       "leftEyeX" : 0.6,
+       "leftEyeX" : 0.5,
        "leftEyeY" : 0.3,
-       "noseX" : 0.5,
-       "noseY" : 0.6
+       "noseX" : 0.4,
+       "noseY" : 0.3
     },
     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
-       "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
-       "leftEyeX" : 0.6,
-       "leftEyeY" : 0.3,
-       "noseX" : 0.5,
-       "noseY" : 0.6
+       "positionX" : 0.167,
+       "positionY" : 0.384,
+       "rightEyeX" : 0.7,
+       "rightEyeY" : 0.4,
+       "leftEyeX" : 0.7,
+       "leftEyeY" : 0.4,
+       "noseX" : 0.7,
+       "noseY" : 0.5
     },
     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
-       "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
+       "positionX" : 0.847,
+       "positionY" : 0.404,
+       "rightEyeX" : 0.5,
+       "rightEyeY" : 0.4,
        "leftEyeX" : 0.6,
-       "leftEyeY" : 0.3,
+       "leftEyeY" : 0.6,
        "noseX" : 0.5,
-       "noseY" : 0.6
+       "noseY" : 0.5
     },
     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
-       "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
+       "positionX" : 0.772,
+       "positionY" : 0.272,
+       "rightEyeX" : 0.5,
+       "rightEyeY" : 0.4,
        "leftEyeX" : 0.6,
-       "leftEyeY" : 0.3,
+       "leftEyeY" : 0.6,
        "noseX" : 0.5,
-       "noseY" : 0.6
-    },
+       "noseY" : 0.4
+    }
   ]
 }
