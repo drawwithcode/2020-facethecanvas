@@ -36,14 +36,15 @@ function setup() {
 
 function draw() {
   if(loading==2){
-    // showImages();
+    image(cuttedArtwork,width/2,height/2,width,height);
+    showAddedFaces();
     showPhotos();
     loading = 3;
   };
-  image(cuttedArtwork,width/2,height/2,width,height);
-  showAddedFaces();
-  // assignSelectedFrame();
-  // noLoop();
+
+  if(loading==3) {
+    assignSelectedFrame();
+  }
 }
 
 //FIREBASE
@@ -158,11 +159,12 @@ function showImages() {
 }
 
 function showPhotos() {
-  //console.log(allPhotos.length);
-
-  if (allPhotos1.length > 0) {
-    console.log("SCIAOBELO");
+  if (allPhotos1.length >= 0) {
+    let lastAddedFace = allPhotos1.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,80,80);
   }
+
 }
 
 function showAddedFaces() {
