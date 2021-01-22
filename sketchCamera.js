@@ -95,8 +95,8 @@ function loadPose() {
   correctLeftEye.x = (faceData.faces[whichFrame].leftEyeX)*width;
   correctLeftEye.y = (faceData.faces[whichFrame].leftEyeY)*height;
 
-  correctNose.x = (faceData.faces[whichFrame].noseX)*width;
-  correctNose.y = (faceData.faces[whichFrame].noseY)*height;
+  correctNose.x = (faceData.faces[whichFrame].noseX)*400;
+  correctNose.y = (faceData.faces[whichFrame].noseY)*400;
 
   poseNet = ml5.poseNet(capture, modelLoaded);
   poseNet.on('pose', gotPoses);
@@ -137,6 +137,8 @@ function showCapture() {
 
 function showPhoto() {
   image(capture, width/2, height/2, 0, height);
+  // image(capture, width/2, height/2);
+
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
   }
@@ -144,28 +146,29 @@ function showPhoto() {
 
 function showPose() {
 
-  strokeWeight(10);
+  strokeWeight(8);
   noFill();
 
   if(pose) {
-    ellipse(pose.nose.x,pose.nose.y,10);
-    ellipse(pose.rightEye.x,pose.rightEye.y,10);
-    ellipse(pose.leftEye.x,pose.leftEye.y,10);
+    //I don't know why but PoseNet translate the position of eyes and nose 120x,30y (MISTERO DELLA FEDE)
+    ellipse(pose.nose.x-120,pose.nose.y-30,20);
+    ellipse(pose.rightEye.x-120,pose.rightEye.y-30,10);
+    ellipse(pose.leftEye.x-120,pose.leftEye.y-30,10);
 
-    distNose = dist(pose.nose.x, pose.nose.y, correctNose.x,correctNose.y);
-    distRightEye = dist(pose.rightEye.x, pose.rightEye.y, correctRightEye.x, correctRightEye.y);
-    distLeftEye = dist(pose.leftEye.x, pose.leftEye.y, correctLeftEye.x, correctLeftEye.y);
+    distNose = dist(pose.nose.x-120, pose.nose.y-30, correctNose.x,correctNose.y);
+    distRightEye = dist(pose.rightEye.x-120, pose.rightEye.y-30, correctRightEye.x, correctRightEye.y);
+    distLeftEye = dist(pose.leftEye.x-120, pose.leftEye.y-30, correctLeftEye.x, correctLeftEye.y);
 
     if(distRightEye<100) {
       push();
       stroke("#2ECC71");
-      ellipse(correctRightEye.x, correctRightEye.y, 50);
+      ellipse(correctRightEye.x, correctRightEye.y, 30);
       pop();
       overlapRightEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctRightEye.x, correctRightEye.y, 50);
+      ellipse(correctRightEye.x, correctRightEye.y, 30);
       pop();
       overlapRightEye = 0;
     }
@@ -173,13 +176,13 @@ function showPose() {
     if(distLeftEye<100) {
       push();
       stroke("#2ECC71");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 50);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 30);
       pop();
       overlapLeftEye = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctLeftEye.x, correctLeftEye.y, 50);
+      ellipse(correctLeftEye.x, correctLeftEye.y, 30);
       pop();
       overlapLeftEye = 0;
     }
