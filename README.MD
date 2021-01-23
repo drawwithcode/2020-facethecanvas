@@ -1,5 +1,9 @@
 # Face the Canvas!
 
+
+## Code Challenges
+
+
 ## The Team
 Fabrizio Confortola, Valentina Pippia, Sofia Serdar, Filippo Tortelli
 
