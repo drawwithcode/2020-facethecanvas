@@ -190,13 +190,13 @@ function showPose() {
     if(distNose<70) {
       push();
       stroke("#2ECC71");
-      ellipse(correctNose.x, correctNose.y, 50);
+      ellipse(correctNose.x, correctNose.y, 40);
       pop();
       overlapNose = 1;
     } else {
       push();
       stroke("red");
-      ellipse(correctNose.x, correctNose.y, 50);
+      ellipse(correctNose.x, correctNose.y, 40);
       pop();
       overlapNose = 0;
     }

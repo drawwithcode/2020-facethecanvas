@@ -1,34 +1,65 @@
 {
   "faces" : [
-     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
-       "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
-       "leftEyeX" : 0.3,
-       "leftEyeY" : 0.3,
-       "noseX" : 0.3,
-       "noseY" : 0.3,
+    {
+       "positionX" : 0,
+       "positionY" : 0,
+       "rightEyeX" : 0,
+       "rightEyeY" : 0,
+       "leftEyeX" : 0,
+       "leftEyeY" : 0,
+       "noseX" : 0,
+       "noseY" : 0
     },
-     {
-       "positionX" : 0.3,
-       "positionY" : 0.3,
-       "rightEyeX" : 0.3,
-       "rightEyeY" : 0.3,
-       "leftEyeX" : 0.3,
-       "leftEyeY" : 0.3,
-       "noseX" : 0.3,
-       "noseY" : 0.3,
+
+    {
+       "positionX" : 0.346,
+       "positionY" : 0.355,
+       "rightEyeX" : 0.347,
+       "rightEyeY" : 0.442,
+       "leftEyeX" : 0.516,
+       "leftEyeY" : 0.342,
+       "noseX" : 0.484,
+       "noseY" : 0.506
     },
-     {
-      "positionX" : 0.3,
-      "positionY" : 0.3,
-      "rightEyeX" : 0.3,
-      "rightEyeY" : 0.3,
-      "leftEyeX" : 0.3,
-      "leftEyeY" : 0.3,
-      "noseX" : 0.3,
-      "noseY" : 0.3,
+    {
+       "positionX" : 0.282,
+       "positionY" : 0.328,
+       "rightEyeX" : 0.601,
+       "rightEyeY" : 0.340,
+       "leftEyeX" : 0.748,
+       "leftEyeY" : 0.408,
+       "noseX" : 0.696,
+       "noseY" : 0.481
+    },
+    {
+       "positionX" : 0.150,
+       "positionY" : 0.304,
+       "rightEyeX" : 0.522,
+       "rightEyeY" : 0.418,
+       "leftEyeX" : 0.726,
+       "leftEyeY" : 0.486,
+       "noseX" : 0.600,
+       "noseY" : 0.581
+    },
+    {
+       "positionX" : 0.869,
+       "positionY" : 0.324,
+       "rightEyeX" : 0.338,
+       "rightEyeY" : 0.475,
+       "leftEyeX" : 0.452,
+       "leftEyeY" : 0.410,
+       "noseX" : 0.484,
+       "noseY" : 0.534
+    },
+    {
+       "positionX" : 0.522,
+       "positionY" : 0.461,
+       "rightEyeX" : 0.432,
+       "rightEyeY" : 0.378,
+       "leftEyeX" : 0.650,
+       "leftEyeY" : 0.414,
+       "noseX" : 0.552,
+       "noseY" : 0.481
     }
   ]
 }

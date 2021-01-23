@@ -1,7 +1,32 @@
 body {
-    background-color: #262626;
-    color: #fdd835;
+    background-color: black;
+    font-weight: 700;
     font-family: 'Quicksand', sans-serif;
+}
+
+p {
+  color: white;
+  font-size: 20px;
+}
+
+h2 {
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  color: #e79754;
+}
+
+h3 {
+  font-weight: 700;
+  font-family: 'Quicksand', sans-serif;
+  color: #ffffff;
+}
+
+.bg-dark {
+    background-color: #000000!important;
+}
+
+.border {
+    border: 2px solid #303030!important;
 }
 
 .main-artwork {
@@ -26,7 +51,7 @@ body {
     opacity: 0;
 
     /* transition effect. not necessary */
-    transition: opacity .2s, visibility .2s;
+    transition: opacity .4s, visibility .2s;
 }
 
 .main-artwork-wrap:hover .main-artwork-title {

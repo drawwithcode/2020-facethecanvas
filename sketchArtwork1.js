@@ -41,6 +41,7 @@ function draw() {
   }
 
   if(loading==2){
+    background("black");
     showPhotos();
     image(cuttedArtwork,width/2,height/2,width,height);
     //showOver();

@@ -43,9 +43,10 @@ function draw() {
   }
 
   if(loading==2){
+    background("black");
     showPhotos();
-    //showOver();
     image(cuttedArtwork,width/2,height/2,width,height);
+    //showOver();
     loading = 3;
   };
 

@@ -4,9 +4,6 @@ var allPhotos2 = [];
 var allPhotos3 = [];
 var allPhotos4 = [];
 var allPhotos5 = [];
-var allPhotos6 = [];
-var allPhotos7 = [];
-var allPhotos8 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -15,7 +12,7 @@ let loadingText = "Loading canvas..."
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
 const url = new URL(urlString);
-var currentArtwork = 3; //quadro attuale, for Camera
+var currentArtwork = 2; //quadro attuale, for Camera
 var selectedFrame = 0; //per openCamera()
 
 let logo;
@@ -34,7 +31,7 @@ function setup() {
   background("black");
 
   p = createP("Paragrafo");
-  logo = createElement("h1","Face the: <br>Scuola di Atene");
+  logo = createElement("h1","Face the: <br>AAA");
 
 }
 
@@ -72,29 +69,20 @@ function firebaseConfiguration() {
   firebase.initializeApp(firebaseConfig);
   database = firebase.database();
 
-  let ref1 = database.ref('photos/artwork3/face1');
+  let ref1 = database.ref('photos/artwork2/face1');
   ref1.once('value', gotData1, errData);
 
-  let ref2 = database.ref('photos/artwork3/face2');
+  let ref2 = database.ref('photos/artwork2/face2');
   ref2.once('value', gotData2, errData);
 
-  let ref3 = database.ref('photos/artwork3/face3');
+  let ref3 = database.ref('photos/artwork2/face3');
   ref3.once('value', gotData3, errData);
 
-  let ref4 = database.ref('photos/artwork3/face4');
+  let ref4 = database.ref('photos/artwork2/face4');
   ref4.once('value', gotData4, errData);
 
-  let ref5 = database.ref('photos/artwork3/face5');
+  let ref5 = database.ref('photos/artwork2/face5');
   ref5.once('value', gotData5, errData);
-
-  let ref6 = database.ref('photos/artwork3/face6');
-  ref6.once('value', gotData6, errData);
-
-  let ref7 = database.ref('photos/artwork3/face7');
-  ref7.once('value', gotData7, errData);
-
-  let ref8 = database.ref('photos/artwork3/face8');
-  ref8.once('value', gotData8, errData);
 }
 
 //an array for every face, with all the photos of that face
@@ -108,7 +96,7 @@ function gotData1(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos1[i] = loadImage(photoImage);
-    console.log("artwork3/face1 loaded="+allPhotos1.length);
+    console.log("artwork2/face1 loaded="+allPhotos1.length);
   }
 
 }
@@ -122,7 +110,7 @@ function gotData2(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos2[i] = loadImage(photoImage);
-    console.log("artwork3/face2 loaded="+allPhotos2.length);
+    console.log("artwork2/face2 loaded="+allPhotos2.length);
   }
 
 }
@@ -136,7 +124,7 @@ function gotData3(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos3[i] = loadImage(photoImage);
-    console.log("artwork3/face3 loaded="+allPhotos3.length);
+    console.log("artwork2/face3 loaded="+allPhotos3.length);
   }
 
 }
@@ -150,7 +138,7 @@ function gotData4(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos4[i] = loadImage(photoImage);
-    console.log("artwork3/face4 loaded="+allPhotos4.length);
+    console.log("artwork2/face4 loaded="+allPhotos4.length);
   }
 
 }
@@ -164,49 +152,7 @@ function gotData5(data) {
     let id = scores[k].id;
     let photoImage = scores[k].photoImage;
     allPhotos5[i] = loadImage(photoImage);
-    console.log("artwork3/face5 loaded="+allPhotos5.length);
-  }
-
-}
-
-function gotData6(data) {
-  let scores = data.val();
-  let keys = Object.keys(scores);
-
-  for (let i=0; i < keys.length; i++) {
-    let k = keys[i];
-    let id = scores[k].id;
-    let photoImage = scores[k].photoImage;
-    allPhotos6[i] = loadImage(photoImage);
-    console.log("artwork3/face6 loaded="+allPhotos6.length);
-  }
-
-}
-
-function gotData7(data) {
-  let scores = data.val();
-  let keys = Object.keys(scores);
-
-  for (let i=0; i < keys.length; i++) {
-    let k = keys[i];
-    let id = scores[k].id;
-    let photoImage = scores[k].photoImage;
-    allPhotos7[i] = loadImage(photoImage);
-    console.log("artwork3/face7 loaded="+allPhotos7.length);
-  }
-
-}
-
-function gotData8(data) {
-  let scores = data.val();
-  let keys = Object.keys(scores);
-
-  for (let i=0; i < keys.length; i++) {
-    let k = keys[i];
-    let id = scores[k].id;
-    let photoImage = scores[k].photoImage;
-    allPhotos8[i] = loadImage(photoImage);
-    console.log("artwork3/face8 loaded="+allPhotos8.length);
+    console.log("artwork2/face5 loaded="+allPhotos5.length);
   }
 
   loading = 2;
@@ -220,7 +166,7 @@ function errData(err) {
 //FIREBASE
 
 function loadFaceData() {
-  faceData = loadJSON("./assets/faces3.json");
+  faceData = loadJSON("./assets/faces2.json");
 }
 
 function showCanvas() {
@@ -260,49 +206,31 @@ function showPhotos() {
   if (allPhotos1.length >= 0) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
+    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos2.length >= 0) {
     let lastAddedFace = allPhotos2.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
+    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos3.length >= 0) {
     let lastAddedFace = allPhotos3.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
+    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos4.length >= 0) {
     let lastAddedFace = allPhotos4.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/6,width/6);
+    image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos5.length >= 0) {
     let lastAddedFace = allPhotos5.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/6,width/6);
-  }
-
-  if (allPhotos6.length >= 0) {
-    let lastAddedFace = allPhotos6.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos6[lastAddedFace],(faceData.faces[6].positionX)*width,(faceData.faces[6].positionY)*height,width/6,width/6);
-  }
-
-  if (allPhotos7.length >= 0) {
-    let lastAddedFace = allPhotos7.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos7[lastAddedFace],(faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height,width/6,width/6);
-  }
-
-  if (allPhotos8.length >= 0) {
-    let lastAddedFace = allPhotos8.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos8[lastAddedFace],(faceData.faces[8].positionX)*width,(faceData.faces[8].positionY)*height,width/6,width/6);
+    image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/8,width/8);
   }
 
 }
@@ -327,12 +255,6 @@ function assignSelectedFrame() {
     selectedFrame = 4;
   } else if (dist(mouseX, mouseY, (faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height) < 50) {
     selectedFrame = 5;
-  } else if (dist(mouseX, mouseY, (faceData.faces[6].positionX)*width,(faceData.faces[6].positionY)*height) < 50) {
-    selectedFrame = 6;
-  } else if (dist(mouseX, mouseY, (faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height) < 50) {
-    selectedFrame = 7;
-  } else if (dist(mouseX, mouseY, (faceData.faces[8].positionX)*width,(faceData.faces[8].positionY)*height) < 50) {
-    selectedFrame = 8;
   } else {
     selectedFrame = 0;
   }
