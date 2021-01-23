@@ -1,7 +1,7 @@
 # Face the Canvas!
 
-##Design challenges
-One of our design challenges was finding a way to help the users to place their face in the right position. For this task, we use PoseNet. PoseNet allows a complete Pose Estimation. PoseNet is a pre-trained model, available with the ml5.js library and the p5.js library, that track the body in the browser in real time. Thus, we have a series of sets of coordinates, which can be used for our purposes.
+## Design challenges
+One of our design challenges was finding a way to help the users to place their face in the right position. For this task, we use PoseNet. This tool allows a complete Pose Estimation. PoseNet is a pre-trained model, available with the ml5.js library and the p5.js library, that track the body in the browser in real time. Thus, we have a series of sets of coordinates, which can be used for our purposes.
 
 //mettiamo foto d’esempio del funzionamento
 
