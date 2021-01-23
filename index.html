@@ -1,13 +1,104 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <meta charset="utf-8">
-    <meta name="viewport" width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0>
-    <style> body {padding: 0; margin: 0;} </style>
-    <script src="p5.min.js"></script>
-    <script src="p5.sound.min.js"></script>
-    <script src="sketchLanding.js"></script>
-  </head>
-  <body>
-  </body>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script>
+
+    <link href="assets/styles/styleIndex.css" rel="stylesheet">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark border border-light border-1">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="../../assets/images/logo.png" alt="" width="120" height="50">
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link" href="http://www.museivaticani.va">Join the Show</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+<main>
+    <div class="container pt-5">
+        <h2>Can you imagine to take part into a Raffaello's masterpiece</h2>
+        <p>Click on your favorite painting.</p>
+        <p>Make your choice and see what happens</p>
+        <div class="row">
+            <div class="col-12 col-sm mt-3">
+                <a href="../detail/artwork1.html">
+                    <div class="main-artwork-wrap">
+                        <div class="main-artwork scuola-atene rounded-3">
+                        </div>
+                        <h3 class="main-artwork-title m-0 align-middle text-center pt-5">Scuola di Atene</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-sm mt-3">
+                <a href="#">
+                    <div class="main-artwork-wrap">
+                        <div class="main-artwork parnaso rounded-3">
+                        </div>
+                        <h3 class="main-artwork-title m-0 align-middle text-center pt-5">Parnaso</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 col-sm mt-3">
+                <a href="#">
+                    <div class="main-artwork-wrap">
+                        <div class="main-artwork teologia rounded-3">
+                        </div>
+                        <h3 class="main-artwork-title m-0 align-middle text-center pt-5">Teologia</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-12 col-sm mt-3">
+                <a href="#">
+                    <div class="main-artwork-wrap">
+                        <div class="main-artwork giustizia rounded-3">
+                        </div>
+                        <h3 class="main-artwork-title m-0 align-middle text-center pt-5">Giustizia</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="container pt-5">
+            <h2 id="about">About</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+            <h2 id="contact">Contact</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+                fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt mollit anim id est laborum.</p>
+        </div>
+    </div>
+</main>
+</body>
 </html>

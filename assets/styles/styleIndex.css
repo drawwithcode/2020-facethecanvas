@@ -1,0 +1,51 @@
+body {
+    background-color: #262626;
+    color: #fdd835;
+    font-family: 'Quicksand', sans-serif;
+}
+
+.main-artwork {
+    height: 400px;
+    background-size: cover;
+    background-position: center;
+}
+
+.main-artwork-wrap {
+    position: relative;
+}
+
+.main-artwork-title {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #22202060;
+    color: #fff;
+    visibility: hidden;
+    opacity: 0;
+
+    /* transition effect. not necessary */
+    transition: opacity .2s, visibility .2s;
+}
+
+.main-artwork-wrap:hover .main-artwork-title {
+    visibility: visible;
+    opacity: 1;
+}
+
+.scuola-atene {
+    background-image: url('../images/artworks/scuola-atene.jpg');
+}
+
+.parnaso {
+    background-image: url('../images/artworks/parnaso.jpg');
+}
+
+.giustizia {
+    background-image: url('../images/artworks/giustizia.jpg');
+}
+
+.teologia {
+    background-image: url('../images/artworks/teologia.jpg');
+}
