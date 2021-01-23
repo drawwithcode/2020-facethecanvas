@@ -1,15 +1,74 @@
-body {
-  padding: 5vh;
-  margin: 0;
-  background-color: green;
-  display: flex;
+  body {
+    padding: 5vh;
+    margin: 0;
+    background-color: black;
+    display: flex;
 
-  justify-content: center;
-  align-items: center;
-}
+    justify-content: center;
+    align-items: center;
+  }
+
+  p {
+    position: absolute;
+    transform: translate(-50%);
+    text-align: center;
+    color: white;
+    font-size: 20px;
+    font-family: Quicksand;
+  }
+
+  #poseText {
+    top: 62vh;
+    left: 50%;
+  }
+
+  button {
+    background-color: black;
+    display: inline-block;
+    border-radius: 8px;
+    position: absolute;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    border: 2px solid gray;
+    color: white;
+    font-size: 20px;
+    font-family: Quicksand;
+    display: block;
+  }
+
+  button:hover{
+    background-color: crimson;
+    border: 2px solid crimson;
+    color:white;
+  }
+
+  #backButton {
+    top: 77vh;
+    left: 50%;
+  }
+
+  #takePhotoButton {
+    top: 82vh;
+    left: 50%;
+  }
+
+  #confirmButton {
+    top: 87vh;
+    left: 50%;
+  }
+
+  #retakePhotoButton {
+    top: 82vh;
+    left: 50%;
+  }
+
+  #sendButton {
+    top: 72%;
+    left: 50%;
+  }
 
 /* DESKTOP */
-@media screen and (min-width: 1024px) {
+@media screen and (min-height: 800px) {
   body {
     padding: 5vh;
     margin: 0;
@@ -50,31 +109,32 @@ body {
 
   button:hover{
     background-color: crimson;
+    border: 2px solid crimson;
     color:white;
   }
 
   #backButton {
-    top: 65vh;
+    top: 67vh;
     left: 50%;
   }
 
   #takePhotoButton {
-    top: 70vh;
+    top: 72vh;
     left: 50%;
   }
 
   #confirmButton {
-    top: 75vh;
+    top: 77vh;
     left: 50%;
   }
 
   #retakePhotoButton {
-    top: 70vh;
+    top: 72vh;
     left: 50%;
   }
 
   #sendButton {
-    top: 65%;
+    top: 62%;
     left: 50%;
   }
 

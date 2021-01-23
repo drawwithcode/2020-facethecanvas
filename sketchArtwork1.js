@@ -5,6 +5,7 @@ var allPhotos3 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
+let loadingText = "Loading canvas..."
 
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
@@ -27,18 +28,22 @@ function setup() {
   showCanvas();
   background("black");
 
-  button = createButton("CAMERA");
-  button.mousePressed(openCamera);
+  // button = createButton("CAMERA");
+  // button.mousePressed(openCamera);
   p = createP("Paragrafo");
-  logo = createElement("h1","Titolo");
+  logo = createElement("h1","Face the: <br> AAAAAAA");
 
 }
 
 function draw() {
+  if(loading==1) {
+    showLoading();
+  }
+
   if(loading==2){
-    image(cuttedArtwork,width/2,height/2,width,height);
-    showAddedFaces();
     showPhotos();
+    image(cuttedArtwork,width/2,height/2,width,height);
+    //showOver();
     loading = 3;
   };
 
@@ -79,7 +84,6 @@ function gotData1(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -88,14 +92,12 @@ function gotData1(data) {
     console.log("artwork1/face1 loaded="+allPhotos1.length);
   }
 
-  // loading = 2;
 }
 
 function gotData2(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -104,14 +106,12 @@ function gotData2(data) {
     console.log("artwork1/face2 loaded="+allPhotos2.length);
   }
 
-  // loading = 2;
 }
 
 function gotData3(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -143,28 +143,52 @@ function showCanvas() {
   cnv.id("canvas");
 }
 
-function showImages() {
-  //Ciclo for che usa la lunghezza dell'array allImages deve aspettare che l'array si riempia,
-  // quindi la funzione va chiamata nella funzione gotData().
+function showLoading() {
+  push();
+  fill("black");
+  noStroke();
+  ellipse(width/2,height/2,100);
+  pop();
 
-  // console.log(allPhotos[2]);
-  // for (let i=0; i < allPhotos.length; i++) {
-  //   //console.log(allPhotos[i]);
-  //   image(allPhotos[i],80*i,0,80,80);
-  // }
-  console.log("okk");
+  push();
+  textAlign(CENTER,CENTER);
+  fill(255);
+  textSize(30);
+  textFont("Quicksand");
+  text(loadingText,width/2,height/2-60);
+  pop();
+
+  let slowFrameCount = frameCount*0.2;
+  push();
+  noFill();
+  stroke("white");
+  strokeWeight(8);
+  arc(width/2,height/2,40,40,slowFrameCount,(240+slowFrameCount),DEGREES);
+  pop();
 }
 
 function showPhotos() {
   if (allPhotos1.length >= 0) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,80,80);
+    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos2.length >= 0) {
+    let lastAddedFace = allPhotos2.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
+  }
+
+  if (allPhotos3.length >= 0) {
+    let lastAddedFace = allPhotos3.length-1;
+    console.log("Added faces="+(lastAddedFace+1));
+    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
   }
 
 }
 
-function showAddedFaces() {
+function showOver() {
   for (let i=0; i < faceData.faces.length; i++) {
     ellipse((faceData.faces[i].positionX)*width,(faceData.faces[i].positionY)*height,50);
     textSize(30);

@@ -12,6 +12,7 @@ body {
 }
 
 p {
+  margin-top: 3vh;
   padding: 3vh;
   position: absolute;
   text-align: left;
@@ -21,7 +22,9 @@ p {
   top: 10vh;
 }
 
+
 h1 {
+  margin: 0;
   padding: 3vh;
   position: absolute;
   text-align: left;
