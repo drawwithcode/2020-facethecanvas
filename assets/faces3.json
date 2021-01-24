@@ -32,16 +32,6 @@
        "noseY" : 0.494
     },
     {
-       "positionX" : 0.802,
-       "positionY" : 0.166,
-       "rightEyeX" : 0.444,
-       "rightEyeY" : 0.332,
-       "leftEyeX" : 0.584,
-       "leftEyeY" : 0.350,
-       "noseX" : 0.475,
-       "noseY" : 0.440
-    },
-    {
        "positionX" : 0.837,
        "positionY" : 0.175,
        "rightEyeX" : 0.394,
@@ -80,6 +70,18 @@
        "leftEyeY" : 0.215,
        "noseX" : 0.277,
        "noseY" : 0.267
+    },
+
+    {
+      "positionX" : 0,
+      "positionY" : 0,
+      "rightEyeX" : 0,
+      "rightEyeY" : 0,
+      "leftEyeX" : 0,
+      "leftEyeY" : 0,
+      "noseX" : 0,
+      "noseY" : 0
+
     }
   ]
 }

@@ -4,6 +4,7 @@ var allPhotos2 = [];
 var allPhotos3 = [];
 var allPhotos4 = [];
 var allPhotos5 = [];
+var allPhotos6 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -44,7 +45,7 @@ function draw() {
     background("black");
     showPhotos();
     image(cuttedArtwork,width/2,height/2,width,height);
-    showOver();
+    // showOver();
     loading = 3;
   };
 
@@ -83,6 +84,9 @@ function firebaseConfiguration() {
 
   let ref5 = database.ref('photos/artwork2/face5');
   ref5.once('value', gotData5, errData);
+
+  let ref6 = database.ref('photos/artwork2/face6');
+  ref6.once('value', gotData6, errData);
 }
 
 //an array for every face, with all the photos of that face
@@ -153,6 +157,19 @@ function gotData5(data) {
     let photoImage = scores[k].photoImage;
     allPhotos5[i] = loadImage(photoImage);
     console.log("artwork2/face5 loaded="+allPhotos5.length);
+  }
+}
+
+function gotData6(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos6[i] = loadImage(photoImage);
+    console.log("artwork2/face6 loaded="+allPhotos6.length);
   }
 
   loading = 2;

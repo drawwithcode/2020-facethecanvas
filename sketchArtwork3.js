@@ -91,6 +91,7 @@ function firebaseConfiguration() {
 
   let ref7 = database.ref('photos/artwork3/face7');
   ref7.once('value', gotData7, errData);
+
 }
 
 //an array for every face, with all the photos of that face
@@ -176,7 +177,6 @@ function gotData6(data) {
     allPhotos6[i] = loadImage(photoImage);
     console.log("artwork3/face6 loaded="+allPhotos6.length);
   }
-
 }
 
 function gotData7(data) {
@@ -242,43 +242,37 @@ function showPhotos() {
   if (allPhotos1.length >= 0) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
+    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos2.length >= 0) {
     let lastAddedFace = allPhotos2.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
+    image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos3.length >= 0) {
     let lastAddedFace = allPhotos3.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
+    image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos4.length >= 0) {
     let lastAddedFace = allPhotos4.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/6,width/6);
+    image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos5.length >= 0) {
     let lastAddedFace = allPhotos5.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/6,width/6);
+    image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/8,width/8);
   }
 
   if (allPhotos6.length >= 0) {
     let lastAddedFace = allPhotos6.length-1;
     console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos6[lastAddedFace],(faceData.faces[6].positionX)*width,(faceData.faces[6].positionY)*height,width/6,width/6);
-  }
-
-  if (allPhotos7.length >= 0) {
-    let lastAddedFace = allPhotos7.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos7[lastAddedFace],(faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height,width/6,width/6);
+    image(allPhotos6[lastAddedFace],(faceData.faces[6].positionX)*width,(faceData.faces[6].positionY)*height,width/8,width/8);
   }
 
 }
@@ -305,8 +299,6 @@ function assignSelectedFrame() {
     selectedFrame = 5;
   } else if (dist(mouseX, mouseY, (faceData.faces[6].positionX)*width,(faceData.faces[6].positionY)*height) < 50) {
     selectedFrame = 6;
-  } else if (dist(mouseX, mouseY, (faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height) < 50) {
-    selectedFrame = 7;
   } else {
     selectedFrame = 0;
   }

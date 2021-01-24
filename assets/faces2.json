@@ -60,6 +60,18 @@
        "leftEyeY" : 0.414,
        "noseX" : 0.552,
        "noseY" : 0.481
+    },
+
+    {
+      "positionX" : 0,
+      "positionY" : 0,
+      "rightEyeX" : 0,
+      "rightEyeY" : 0,
+      "leftEyeX" : 0,
+      "leftEyeY" : 0,
+      "noseX" : 0,
+      "noseY" : 0
+
     }
   ]
 }

@@ -4,6 +4,7 @@ var allPhotos2 = [];
 var allPhotos3 = [];
 var allPhotos4 = [];
 var allPhotos5 = [];
+var allPhotos6 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -85,6 +86,9 @@ function firebaseConfiguration() {
 
   let ref5 = database.ref('photos/artwork4/face5');
   ref5.once('value', gotData5, errData);
+
+  let ref6 = database.ref('photos/artwork4/face6');
+  ref6.once('value', gotData6, errData);
 }
 
 //an array for every face, with all the photos of that face
@@ -92,9 +96,7 @@ function firebaseConfiguration() {
 function gotData1(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
-  //console.log(keys);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -103,15 +105,12 @@ function gotData1(data) {
     console.log("artwork4/face1 loaded="+allPhotos1.length);
   }
 
-  // loading = 2;
 }
 
 function gotData2(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
-  //console.log(keys);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -120,15 +119,12 @@ function gotData2(data) {
     console.log("artwork4/face2 loaded="+allPhotos2.length);
   }
 
-  // loading = 2;
 }
 
 function gotData3(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
-  //console.log(keys);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -137,15 +133,12 @@ function gotData3(data) {
     console.log("artwork4/face3 loaded="+allPhotos3.length);
   }
 
-  // loading = 2;
 }
 
 function gotData4(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
-  //console.log(keys);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -153,16 +146,12 @@ function gotData4(data) {
     allPhotos4[i] = loadImage(photoImage);
     console.log("artwork4/face4 loaded="+allPhotos4.length);
   }
-
-  // loading = 2;
 }
 
 function gotData5(data) {
   let scores = data.val();
   let keys = Object.keys(scores);
-  //console.log(keys);
 
-  //questa operazione va fatta per ogni faccia
   for (let i=0; i < keys.length; i++) {
     let k = keys[i];
     let id = scores[k].id;
@@ -170,8 +159,21 @@ function gotData5(data) {
     allPhotos5[i] = loadImage(photoImage);
     console.log("artwork4/face5 loaded="+allPhotos5.length);
   }
+}
 
+function gotData6(data) {
+  let scores = data.val();
+  let keys = Object.keys(scores);
+
+  for (let i=0; i < keys.length; i++) {
+    let k = keys[i];
+    let id = scores[k].id;
+    let photoImage = scores[k].photoImage;
+    allPhotos6[i] = loadImage(photoImage);
+    console.log("artwork4/face6 loaded="+allPhotos6.length);
+  }
   loading = 2;
+
 }
 //FACES
 
@@ -219,31 +221,31 @@ function showLoading() {
 }
 
 function showPhotos() {
-  if (allPhotos1.length >= 0) {
+  if (allPhotos1.length >= 2) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos2.length >= 0) {
+  if (allPhotos2.length >= 2) {
     let lastAddedFace = allPhotos2.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos3.length >= 0) {
+  if (allPhotos3.length >= 2) {
     let lastAddedFace = allPhotos3.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos4.length >= 0) {
+  if (allPhotos4.length >= 2) {
     let lastAddedFace = allPhotos4.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos4[lastAddedFace],(faceData.faces[4].positionX)*width,(faceData.faces[4].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos5.length >= 0) {
+  if (allPhotos5.length >= 2) {
     let lastAddedFace = allPhotos5.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos5[lastAddedFace],(faceData.faces[5].positionX)*width,(faceData.faces[5].positionY)*height,width/6,width/6);
