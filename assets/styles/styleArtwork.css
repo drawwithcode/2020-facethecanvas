@@ -14,10 +14,11 @@ body {
 p {
   margin-top: 3vh;
   padding: 3vh;
+  padding-right: 80vw;
   position: absolute;
   text-align: left;
   color: white;
-  font-size: 20px;
+  font-size: 15px;
   font-family: Quicksand;
   top: 10vh;
 }
@@ -26,10 +27,23 @@ p {
 h1 {
   margin: 0;
   padding: 3vh;
+  padding-right: 75vw;
   position: absolute;
   text-align: left;
-  color: white;
-  font-size: 40px;
+  color: #e79754;
+  font-size: 20px;
   font-family: Quicksand;
   /* Quicksand */
+}
+
+@media screen and (min-height: 800px) {
+  p {
+    padding-right: 3vw;
+    top: 90vh;
+  }
+
+
+  h1 {
+    padding-right: 3vw;
+  }
 }

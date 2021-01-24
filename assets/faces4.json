@@ -54,12 +54,12 @@
     {
        "positionX" : 0.772,
        "positionY" : 0.272,
-       "rightEyeX" : 0.5,
-       "rightEyeY" : 0.4,
-       "leftEyeX" : 0.6,
-       "leftEyeY" : 0.6,
-       "noseX" : 0.5,
-       "noseY" : 0.4
+       "rightEyeX" : 0.642,
+       "rightEyeY" : 0.556,
+       "leftEyeX" : 0.764,
+       "leftEyeY" : 0.558,
+       "noseX" : 0.701,
+       "noseY" : 0.642
     },
 
     {

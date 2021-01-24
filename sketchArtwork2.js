@@ -31,8 +31,8 @@ function setup() {
   showCanvas();
   background("black");
 
-  p = createP("Paragrafo");
-  logo = createElement("h1","Face the: <br>AAA");
+  p = createP("The effect of the fresco has often been judged more eloquent than poetic, with the evidence of the declamatory attitudes of the poets with which Sanzio wanted to give an idea of the different poetic genres (tragic, lyric, epic). The figures have an accentuated sculptural relief, justified by the backlit position of the fresco and by the need therefore to balance the real light effect. Raffaello Sanzio – 1510-1511 – Stanza della Segnatura");
+  logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Parnassus!");
 
 }
 
@@ -220,11 +220,11 @@ function showLoading() {
 }
 
 function showPhotos() {
-  if (allPhotos1.length >= 2) {
-    let lastAddedFace = allPhotos1.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/8,width/8);
-  }
+  // if (allPhotos1.length >= 2) {
+  //   let lastAddedFace = allPhotos1.length-1;
+  //   console.log("Added faces="+(lastAddedFace+1));
+  //   image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/8,width/8);
+  // }
 
   if (allPhotos2.length >= 2) {
     let lastAddedFace = allPhotos2.length-1;
@@ -263,7 +263,7 @@ function showOver() {
 
 function assignSelectedFrame() {
   if (dist(mouseX, mouseY, (faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height) < 50) {
-    selectedFrame = 1;
+    selectedFrame = 0;
   } else if (dist(mouseX, mouseY, (faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height) < 50) {
     selectedFrame = 2;
   } else if (dist(mouseX, mouseY, (faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height) < 50) {

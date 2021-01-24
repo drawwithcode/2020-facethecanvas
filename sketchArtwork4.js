@@ -33,8 +33,8 @@ function setup() {
 
   // button = createButton("CAMERA");
   // button.mousePressed(openCamera);
-  p = createP("Paragrafo");
-  logo = createElement("h1","Face the: <br> Giustizia");
+  p = createP("The personification of Justice is represented on a fake golden mosaic background, seated on a throne of clouds and with one arm raised to brandish the sword, while with the other she holds the typical attribute of the scales, a symbol of fairness. Next to her there are two pairs of cherubs holding white tables with Justinians’ quote inscriptions. Raffaello Sanzio – 1508 – Stanza della Segnatura");
+  logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Justice!");
 
 }
 
