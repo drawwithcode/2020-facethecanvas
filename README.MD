@@ -3,12 +3,13 @@
 ## Design challenges
 One of our design challenges was finding a way to help the users to place their face in the right position. For this task, we use PoseNet. This tool allows a complete Pose Estimation. PoseNet is a pre-trained model, available with the ml5.js library and the p5.js library, that track the body in the browser in real time. Thus, we have a series of sets of coordinates, which can be used for our purposes.
 
-![posent](assets/images/readme/posent.png)
+![posenet](assets/images/readme/posenet.png)
 
 The Coding Train - ml5.js Pose Estimation with PoseNet
 https://www.youtube.com/watch?v=OIo-DIOkNVg&t=17s
 
 We suggest the user to match his eyes and nose with some circles, that represent the correct positions for the nose and the eyes in that specific part of the canvas. The circles change their color, from red to green, when the distance between the user's eye or nose is close enough to the correct position.
+![posenet](assets/images/readme/posenet2.png)
 
 ## Code Challenges
 This project needs a huge quantity of images and data. For this purpose, we organized a hierarchical set of folders, for the images we have prepared, different types of artworks’ cutouts, and we have used some JSON files, one for each artwork, able to give us all the necessary data to correctly replace the missing face in the artwork with the photograph collected, and give the right help to the users in the PoseNet estimation. For each face we collect the following data set:
