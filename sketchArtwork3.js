@@ -6,7 +6,6 @@ var allPhotos4 = [];
 var allPhotos5 = [];
 var allPhotos6 = [];
 var allPhotos7 = [];
-var allPhotos8 = [];
 let cuttedArtwork;
 let faceData;
 var loading = 0;
@@ -47,7 +46,7 @@ function draw() {
     background("black");
     showPhotos();
     image(cuttedArtwork,width/2,height/2,width,height);
-    showOver();
+    // showOver();
     loading = 3;
   };
 
@@ -92,9 +91,6 @@ function firebaseConfiguration() {
 
   let ref7 = database.ref('photos/artwork3/face7');
   ref7.once('value', gotData7, errData);
-
-  let ref8 = database.ref('photos/artwork3/face8');
-  ref8.once('value', gotData8, errData);
 }
 
 //an array for every face, with all the photos of that face
@@ -195,20 +191,6 @@ function gotData7(data) {
     console.log("artwork3/face7 loaded="+allPhotos7.length);
   }
 
-}
-
-function gotData8(data) {
-  let scores = data.val();
-  let keys = Object.keys(scores);
-
-  for (let i=0; i < keys.length; i++) {
-    let k = keys[i];
-    let id = scores[k].id;
-    let photoImage = scores[k].photoImage;
-    allPhotos8[i] = loadImage(photoImage);
-    console.log("artwork3/face8 loaded="+allPhotos8.length);
-  }
-
   loading = 2;
 }
 //FACES
@@ -299,12 +281,6 @@ function showPhotos() {
     image(allPhotos7[lastAddedFace],(faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos8.length >= 0) {
-    let lastAddedFace = allPhotos8.length-1;
-    console.log("Added faces="+(lastAddedFace+1));
-    image(allPhotos8[lastAddedFace],(faceData.faces[8].positionX)*width,(faceData.faces[8].positionY)*height,width/6,width/6);
-  }
-
 }
 
 function showOver() {
@@ -331,8 +307,6 @@ function assignSelectedFrame() {
     selectedFrame = 6;
   } else if (dist(mouseX, mouseY, (faceData.faces[7].positionX)*width,(faceData.faces[7].positionY)*height) < 50) {
     selectedFrame = 7;
-  } else if (dist(mouseX, mouseY, (faceData.faces[8].positionX)*width,(faceData.faces[8].positionY)*height) < 50) {
-    selectedFrame = 8;
   } else {
     selectedFrame = 0;
   }
