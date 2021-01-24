@@ -88,7 +88,6 @@ function errData(err) {
 
 //POSENET
 function loadPose() {
-  //dobbiamo invertire gli occhi per scale del capure, la trasformazione scale non permette a Node di funzionare
   correctRightEye.x = (faceData.faces[whichFrame].rightEyeX)*width;
   correctRightEye.y = (faceData.faces[whichFrame].rightEyeY)*height;
 
@@ -115,7 +114,6 @@ function modelLoaded() {
 //POSENET
 
 function loadFrame() {
-  //aggiungere if dopo &ricevuto
   console.log(whichFrame);
   frame = loadImage("./assets/images/artwork"+whichArwork+"/frames/frame"+whichFrame+".png");
 }
@@ -137,7 +135,6 @@ function showCapture() {
 
 function showPhoto() {
   image(capture, width/2, height/2, 0, height);
-  // image(capture, width/2, height/2);
 
   if(hideFrame == 0) {
     image(frame, width/2, height/2, width, height);
@@ -150,7 +147,6 @@ function showPose() {
   noFill();
 
   if(pose) {
-    //I don't know why but PoseNet translate the position of eyes and nose 120x,30y (MISTERO DELLA FEDE)
     // ellipse(pose.nose.x-120,pose.nose.y-30,20);
     // ellipse(pose.rightEye.x-120,pose.rightEye.y-30,10);
     // ellipse(pose.leftEye.x-120,pose.leftEye.y-30,10);
@@ -202,7 +198,7 @@ function showPose() {
     }
   }
 
-//DA SOSTITUIRE CON &&
+//DA SOSTITUIRE CON && o MANTENERE COSì PER FACILITARE UTENTE E POSE è SOLO UN SUGGERIMENTO
   if(overlapRightEye==1 || overlapLeftEye==1 || overlapNose==1) {
     takePhotoButton.mousePressed(takePhoto);
   }
@@ -240,7 +236,6 @@ function showButtons() {
 function takePhoto() {
   hidePose = 1;
   hideFrame = 1; //nasconde la cornice prima dell'invio al server
-  //non riesco a evitare che non ci sia quando puoi scegliere di rifarla, mi dispice ahah ma non dipende da me
 
   takenPhoto = createImage(cnv.width,cnv.height);
   takenPhoto.copy(cnv, 0, 0, cnv.width, cnv.height, 0, 0, cnv.width, cnv.height);
@@ -285,5 +280,7 @@ function confirmPhoto() {
 
 function openArtwork() {
   //se questo link viene inserito nella funzione confirmPhoto() ci sono problemi col database, che non riceve la foto
-  window.open('index.html', '_self');
+  // window.open('index.html', '_self');
+  window.open('artwork'+whichArwork+'.html', '_self');
+
 }

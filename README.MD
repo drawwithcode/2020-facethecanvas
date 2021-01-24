@@ -5,7 +5,9 @@ Works of art have always had the aim of representing scenes or events in the bes
 ![commonspace](assets/images/readme/commonspace.png)
 ## Context of use
 The aim of Face the Canvas is promoting collections of works of art for galleries and museums in a fun and light way, as well as a captivating instrument to introduce art and its history to a younger audience, possibly sparking some interest in it. In fact, by substituting the faces on the canvas with their own, the users will inevitably have to pay close attention to the details on the painting, their characters and the interactions they have with one another. The first promotion is addressed to Musei Vaticani, but Face The Canvas is an adaptable project that can be adopted by any art museum to launch a new collection of works or to simply attract new visitors. All it needs is a bunch of paintings with figures in it and some creativity and imagination!
+
 ![partner](assets/images/readme/partner.png)
+
 ## Devices
 Face the Canvas is responsive and works with all devices: smartphones, pc, also big screen. To make it fully responsive, we used Boostrap, which allows to build the layout whit a series of containers, rows, and columns to layout and align contents in a flexible way.
 

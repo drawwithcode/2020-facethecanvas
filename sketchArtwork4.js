@@ -14,7 +14,7 @@ let loadingText = "Loading canvas..."
 const urlString = window.location.href;
 const url = new URL(urlString);
 var currentArtwork = 4; //quadro attuale, serve per Camera per le cartelle nel preload
-var selectedFrame = 0; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
+var selectedFrame = 0; //per openCamera()
 
 let logo;
 let p;
@@ -91,7 +91,7 @@ function firebaseConfiguration() {
   ref6.once('value', gotData6, errData);
 }
 
-//an array for every face, with all the photos of that face
+//an array for each face, with all the photos of that face
 //FACES
 function gotData1(data) {
   let scores = data.val();
@@ -293,6 +293,6 @@ function openCamera() {
   // window.open('camera.html', '_self');
 
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
-  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
-  // window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }

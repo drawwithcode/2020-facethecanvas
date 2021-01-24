@@ -12,7 +12,7 @@ let loadingText = "Loading canvas..."
 const urlString = window.location.href;
 const url = new URL(urlString);
 var currentArtwork = 1; //quadro attuale, serve per Camera per le cartelle nel preload
-var selectedFrame = 0; //per openCamera(). Per ora =1 per avanzamento, ma poi da collegare con click specifico
+var selectedFrame = 0; //per openCamera()
 
 let logo;
 let p;
@@ -186,19 +186,19 @@ function showLoading() {
 }
 
 function showPhotos() {
-  if (allPhotos1.length >= 0) {
+  if (allPhotos1.length >= 2) {
     let lastAddedFace = allPhotos1.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos1[lastAddedFace],(faceData.faces[1].positionX)*width,(faceData.faces[1].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos2.length >= 0) {
+  if (allPhotos2.length >= 2) {
     let lastAddedFace = allPhotos2.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos2[lastAddedFace],(faceData.faces[2].positionX)*width,(faceData.faces[2].positionY)*height,width/6,width/6);
   }
 
-  if (allPhotos3.length >= 0) {
+  if (allPhotos3.length >= 2) {
     let lastAddedFace = allPhotos3.length-1;
     console.log("Added faces="+(lastAddedFace+1));
     image(allPhotos3[lastAddedFace],(faceData.faces[3].positionX)*width,(faceData.faces[3].positionY)*height,width/6,width/6);
@@ -242,6 +242,6 @@ function openCamera() {
   // window.open('camera.html', '_self');
 
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
-  window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
-  // window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+  window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
 }
