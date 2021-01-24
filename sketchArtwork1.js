@@ -33,8 +33,7 @@ function setup() {
 
   // button = createButton("CAMERA");
   // button.mousePressed(openCamera);
-  p = createP("The personification of Theology is depicted on a fake golden mosaic background, seated on a throne of clouds and wearing a wind-blown robe, red, green and white, the colors of the Theological Virtues of Charity, Hope and Faith. On the sides she has two cherubs holding white tables with Justinians’ quote inscriptions. Raffaello Sanzio – 1508 – Stanza della Segnatura");
-  logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Theology!");
+  logo = createElement("h1","Click on the selected spaces, <br>make your expression with the camera<br> and join the Theology!");
   homeButton = createButton("HOME PAGE");
   homeButton.mousePressed(openIndex);
 

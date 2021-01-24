@@ -32,8 +32,7 @@ function setup() {
   showCanvas();
   background("black");
 
-  p = createP("The effect of the fresco has often been judged more eloquent than poetic, with the evidence of the declamatory attitudes of the poets with which Sanzio wanted to give an idea of the different poetic genres (tragic, lyric, epic). The figures have an accentuated sculptural relief, justified by the backlit position of the fresco and by the need therefore to balance the real light effect. Raffaello Sanzio – 1510-1511 – Stanza della Segnatura");
-  logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Parnassus!");
+  logo = createElement("h1","Click on the selected spaces, <br>make your expression with the camera<br>and join the Parnassus!");
   homeButton = createButton("HOME PAGE");
   homeButton.mousePressed(openIndex);
 

@@ -17,8 +17,9 @@ h2 {
 
 h3 {
   font-weight: 700;
+  font-size: 20px;
   font-family: 'Quicksand', sans-serif;
-  color: #ffffff;
+  color: #e79754;
 }
 
 .bg-dark {

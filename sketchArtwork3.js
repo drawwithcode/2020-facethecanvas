@@ -34,8 +34,7 @@ function setup() {
   showCanvas();
   background("black");
 
-  p = createP("The fresco represents the most famous philosophers and mathematicians of antiquity intent on communicating with each other, inside an imaginary classical building, represented in perfect perspective. A first and more numerous group is arranged on the sides of a central pair of conversing figures, identified in Plato and Aristotle. Raffaello - 1509-1511 – Stanza della Segnatura");
-  logo = createElement("h1","Click on the selected spaces,make your expression with the camera and join the School of Athens!");
+  logo = createElement("h1","Click on the selected spaces,<br>make your expression with the camera<br>and join the School of Athens!");
   homeButton = createButton("HOME PAGE");
   homeButton.mousePressed(openIndex);
 

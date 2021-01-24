@@ -68,16 +68,7 @@ button:hover{
 } */
 
 @media (min-aspect-ratio: 5/5) {
-  p {
-    padding-right: 80vw;
-    top: 10vh;
-  }
-
-  h1 {
-    padding-right: 75vw;
-  }
-
   button {
-    transform: translate(3vh, 80vh);
+    transform: translate(3vh, 70vh);
   }
 }
