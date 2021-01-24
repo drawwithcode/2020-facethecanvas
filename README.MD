@@ -1,6 +1,10 @@
 # Face the Canvas!
 
 ## Design challenges
+The user selects the artwork with which he wants to interact and then chooses the face of the subject he wants to identify with. The Camera page chooses which data to upload with respect to the user's choice and offers him the possibility to take his own photo. Through the Firebase database service, the artwork's page loads the collected photo and displays it in the artwork.
+![userjourney](assets/images/readme/journey1.png)
+![userjourney](assets/images/readme/journey2.png)
+
 One of our design challenges was finding a way to help the users to place their face in the right position. For this task, we use PoseNet. This tool allows a complete Pose Estimation. PoseNet is a pre-trained model, available with the ml5.js library and the p5.js library, that track the body in the browser in real time. Thus, we have a series of sets of coordinates, which can be used for our purposes.
 
 ![posenet](assets/images/readme/posenet.png)
@@ -33,7 +37,7 @@ The same logic is applied for the eyes and the nose, to set the correct position
 
 The photos we collect and spread are managed through a Firebase Realtime Database. The Camera page sends the collected photos to the database, archiving them according to the organization shown below:
 
-![firebase1](assets/images/readme/firebase1.png)
+![firebase](assets/images/readme/firebase1.png)
 
 The photos collected are then shown in the artworks' pages. As we see in the green selection, for each face only the latest photo collected in Firebase database is shown the artwork's pages. This guarantees the site to remain constantly usable by users, who can re-update the photographs by interacting with the site. Another challenge was to understand how to spread the images files, to collect them and take them from the database. We used the Base64 Encoding.
 
