@@ -7,6 +7,8 @@ let cuttedArtwork;
 let faceData;
 var loading = 0;
 let loadingText = "Loading canvas..."
+let homeButton;
+
 
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
@@ -33,6 +35,8 @@ function setup() {
   // button.mousePressed(openCamera);
   p = createP("The personification of Theology is depicted on a fake golden mosaic background, seated on a throne of clouds and wearing a wind-blown robe, red, green and white, the colors of the Theological Virtues of Charity, Hope and Faith. On the sides she has two cherubs holding white tables with Justinians’ quote inscriptions. Raffaello Sanzio – 1508 – Stanza della Segnatura");
   logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Theology!");
+  homeButton = createButton("HOME PAGE");
+  homeButton.mousePressed(openIndex);
 
 }
 
@@ -244,4 +248,8 @@ function openCamera() {
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
   // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
   window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+}
+
+function openIndex() {
+  window.open('index.html', '_self');
 }

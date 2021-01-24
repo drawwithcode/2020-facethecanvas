@@ -10,6 +10,8 @@ let cuttedArtwork;
 let faceData;
 var loading = 0;
 let loadingText = "Loading canvas..."
+let homeButton;
+
 
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
@@ -34,6 +36,8 @@ function setup() {
 
   p = createP("The fresco represents the most famous philosophers and mathematicians of antiquity intent on communicating with each other, inside an imaginary classical building, represented in perfect perspective. A first and more numerous group is arranged on the sides of a central pair of conversing figures, identified in Plato and Aristotle. Raffaello - 1509-1511 – Stanza della Segnatura");
   logo = createElement("h1","Click on the selected spaces,make your expression with the camera and join the School of Athens!");
+  homeButton = createButton("HOME PAGE");
+  homeButton.mousePressed(openIndex);
 
 }
 
@@ -321,4 +325,8 @@ function openCamera() {
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
   // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
   window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+}
+
+function openIndex() {
+  window.open('index.html', '_self');
 }

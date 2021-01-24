@@ -9,6 +9,7 @@ let cuttedArtwork;
 let faceData;
 var loading = 0;
 let loadingText = "Loading canvas..."
+let homeButton;
 
 //per fare in modo che nella camera ci sia la giusta cornice e che la foto vada nella giusta sottocartella nel database
 const urlString = window.location.href;
@@ -33,6 +34,8 @@ function setup() {
 
   p = createP("The effect of the fresco has often been judged more eloquent than poetic, with the evidence of the declamatory attitudes of the poets with which Sanzio wanted to give an idea of the different poetic genres (tragic, lyric, epic). The figures have an accentuated sculptural relief, justified by the backlit position of the fresco and by the need therefore to balance the real light effect. Raffaello Sanzio – 1510-1511 – Stanza della Segnatura");
   logo = createElement("h1","Click on the selected spaces, make your expression with the camera and join the Parnassus!");
+  homeButton = createButton("HOME PAGE");
+  homeButton.mousePressed(openIndex);
 
 }
 
@@ -294,4 +297,8 @@ function openCamera() {
   //PER PROVE CON P5.JS TOOLBAR USA QUESTO, IL SECONDO PER GITHUB
   // window.open(url.origin + "/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
   window.open(url.origin + "/2020-facethecanvas/camera.html?selectedFrame="+selectedFrame+"&currentArtwork="+currentArtwork, '_self');
+}
+
+function openIndex() {
+  window.open('index.html', '_self');
 }

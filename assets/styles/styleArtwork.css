@@ -36,7 +36,27 @@ h1 {
   /* Quicksand */
 }
 
-@media screen and (min-width: 800px) {
+button {
+  background-color: black;
+  display: inline-block;
+  border-radius: 8px;
+  position: absolute;
+  transform: translate(3vh, 95vh);
+  text-align: center;
+  border: 2px solid gray;
+  color: white;
+  font-size: 20px;
+  font-family: Quicksand;
+  display: block;
+}
+
+button:hover{
+  background-color: crimson;
+  border: 2px solid crimson;
+  color:white;
+}
+
+/* @media screen and (min-width: 1081px) {
   p {
     padding-right: 80vw;
     top: 10vh;
@@ -44,5 +64,20 @@ h1 {
 
   h1 {
     padding-right: 75vw;
+  }
+} */
+
+@media (min-aspect-ratio: 5/5) {
+  p {
+    padding-right: 80vw;
+    top: 10vh;
+  }
+
+  h1 {
+    padding-right: 75vw;
+  }
+
+  button {
+    transform: translate(3vh, 80vh);
   }
 }
