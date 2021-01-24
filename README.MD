@@ -1,5 +1,15 @@
 # Face the Canvas!
 
+## Concept
+Works of art have always had the aim of representing scenes or events in the best possible way to bring the painting to life in front of the viewer's eyes. Starting from this concept, the idea is to make users interact into a work of art scene (the four rooms of Raphael in this case), allowing them to embody one of the figures present in the work. How do users interact? By putting their own face on the figure itself, they complete the painting together giving a personal and original touch of life to it. But most of all: they can always make a new interaction through foolish and joking expressions!
+![commonspace](assets/images/readme/commonspace.png)
+## Context of use
+The aim of Face the Canvas is promoting collections of works of art for galleries and museums in a fun and light way, as well as a captivating instrument to introduce art and its history to a younger audience, possibly sparking some interest in it. In fact, by substituting the faces on the canvas with their own, the users will inevitably have to pay close attention to the details on the painting, their characters and the interactions they have with one another. The first promotion is addressed to Musei Vaticani, but Face The Canvas is an adaptable project that can be adopted by any art museum to launch a new collection of works or to simply attract new visitors. All it needs is a bunch of paintings with figures in it and some creativity and imagination!
+![partner](assets/images/readme/partner.png)
+## Devices
+Face the Canvas is responsive and works with all devices: smartphones, pc, also big screen. To make it fully responsive, we used Boostrap, which allows to build the layout whit a series of containers, rows, and columns to layout and align contents in a flexible way.
+
+
 ## Design challenges
 The user selects the artwork with which he wants to interact and then chooses the face of the subject he wants to identify with. The Camera page chooses which data to upload with respect to the user's choice and offers him the possibility to take his own photo. Through the Firebase database service, the artwork's page loads the collected photo and displays it in the artwork.
 ![userjourney](assets/images/readme/journey1.png)
